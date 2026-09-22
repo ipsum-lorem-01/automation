@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Playwright TS | Theory Map</title>
-  <meta name="description" content="A guided automation theory map: 321 modules across Playwright UI and API, TypeScript, Core Java, Selenium with Java, Rest Assured, SQL, Python and AI evaluation with DeepEval - with simple explanations, sample code, interview Q&amp;A and edge cases." />
+  <meta name="description" content="A guided automation theory map: 345 modules across Playwright UI and API, TypeScript, Core Java, Selenium with Java, Rest Assured, SQL, Git and version control, Python and AI evaluation with DeepEval - with simple explanations, sample code, interview Q&amp;A and edge cases." />
   <meta name="theme-color" content="#f8f7f3" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0b1018" media="(prefers-color-scheme: dark)" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230d141f'/%3E%3Ctext x='32' y='43' font-family='Segoe UI,sans-serif' font-size='30' font-weight='700' fill='%231c7ed6' text-anchor='middle'%3EHS%3C/text%3E%3C/svg%3E" />
@@ -159,6 +159,13 @@ body::after {
 .brand-sub a:hover,
 .brand-sub a:focus-visible {
   text-decoration: underline;
+}
+.credit {
+  white-space: nowrap;
+}
+.credit-role {
+  font-weight: 400;
+  opacity: 0.85;
 }
 .topbar-actions {
   display: flex;
@@ -1285,6 +1292,13 @@ button:focus-visible,
 }
 :root[data-theme="dark"] .subject-sql {
   --subject-accent: #f783ac;
+}
+.subject-git {
+  --subject-accent: #4c6ef5;
+  --subject-wash: rgba(76, 110, 245, 0.15);
+}
+:root[data-theme="dark"] .subject-git {
+  --subject-accent: #91a7ff;
 }
 .subject-python {
   --subject-accent: #f59f00;
@@ -2861,7 +2875,7 @@ mark.hit {
       <span class="brand-mark">HS</span>
       <div>
         <div class="brand-title">Playwright + TypeScript</div>
-        <div class="brand-sub">Developed by <a href="https://www.linkedin.com/in/hussain-s-i/" target="_blank" rel="noopener noreferrer">Hussain, SDET</a></div>
+        <div class="brand-sub">Developed by <span class="credit"><a href="https://www.linkedin.com/in/hussain-s-i/" target="_blank" rel="noopener noreferrer">Hussain</a> <span class="credit-role">(SDET)</span></span> and <span class="credit"><a href="https://www.linkedin.com/in/reshma-nayak-98873115b/" target="_blank" rel="noopener noreferrer">Reshma</a> <span class="credit-role">(QA Specialist)</span></span></div>
       </div>
     </div>
     <div class="topbar-actions">
@@ -3053,7 +3067,7 @@ mark.hit {
 
   <footer class="site-footer">
     <div>Playwright + TypeScript — Theory Map</div>
-    <div>Built by <a href="https://www.linkedin.com/in/hussain-s-i/" target="_blank" rel="noopener noreferrer">Hussain, SDET</a></div>
+    <div>Built by <span class="credit"><a href="https://www.linkedin.com/in/hussain-s-i/" target="_blank" rel="noopener noreferrer">Hussain</a> <span class="credit-role">(SDET)</span></span> and <span class="credit"><a href="https://www.linkedin.com/in/reshma-nayak-98873115b/" target="_blank" rel="noopener noreferrer">Reshma</a> <span class="credit-role">(QA Specialist)</span></span></div>
   </footer>
 
   <script>
@@ -3320,6 +3334,33 @@ const sqlTopicTitles = [
   "JDBC - Connecting Java to a Database",
   "Database Validation in Test Automation",
   "SQL Interview Query Patterns"
+];
+
+const gitTopicTitles = [
+  "Introduction to Git & Version Control",
+  "Git vs GitHub & How a Team Shares Code",
+  "Installation & First-Time Configuration",
+  "The Three Areas - Working Directory, Staging & Repository",
+  "Creating a Repository - init & clone",
+  "Recording Changes - add, commit & status",
+  "Viewing History - log, show, diff & blame",
+  ".gitignore & Untracking Files",
+  "Branches - create, switch & delete",
+  "Merging - Fast-Forward & Three-Way",
+  "Merge Conflicts & How to Resolve Them",
+  "Rebase & Interactive Rebase",
+  "Undoing Changes - restore, reset & revert",
+  "Stashing Work in Progress",
+  "Cherry-pick - Moving One Commit",
+  "Remotes - fetch, pull & push",
+  "Tracking Branches, Push Rejections & Force Push",
+  "Tags & Releases",
+  "Reflog & Recovering Lost Work",
+  "Finding the Bad Commit - blame & bisect",
+  "Git Internals - Objects, SHA & HEAD",
+  "Git Hooks & Husky",
+  "Branching Strategy & Pull Request Workflow",
+  "Git in a Test Automation Project"
 ];
 
 const pythonTopicTitles = [
@@ -8064,6 +8105,609 @@ const deepevalTopicTitles = [
     ];
 
 
+    const gitContentList = [
+      // 1. Introduction to Git & Version Control
+      makeContent(
+        [
+          "<strong>Version control</strong> means the computer remembers every version of your files, so you never have to keep <code>login_test_final_v2.java</code> next to <code>login_test_final_NEW.java</code>.",
+          "<strong>Git</strong> is the tool that does this. It is free, it runs on your laptop, and nearly every company uses it.",
+          "Think of Git as a <strong>camera</strong>. Every time you commit, it takes a photo of your project. You can look at any old photo, or go back to it.",
+          "Each photo (a <strong>commit</strong>) stores three things: what changed, who changed it, and a message saying why.",
+          "A <strong>repository</strong> (\"repo\") is just your project folder plus a hidden <code>.git</code> folder where all those photos are kept.",
+          "<strong>Scenario:</strong> you rewrite <code>tests/login.spec.ts</code>, the suite breaks, and you cannot remember what it looked like yesterday. With Git, one command brings yesterday's version back.",
+          "<strong>Scenario:</strong> two people edit the framework in the same week. Without Git one of them overwrites the other. With Git, each works on a branch and Git combines both.",
+          "As a test engineer you will use Git every day: your framework lives in a repo, your work is reviewed as a pull request, and CI runs your tests on every push."
+        ],
+        `# The whole of Git in five commands - a real first day\n\n# 1. Make the project folder a repository\ncd playwright-framework\ngit init\n#   -> creates the hidden .git folder. Nothing else changes.\n\n# 2. Tell Git who you are (only needed once per machine)\ngit config --global user.name  "Hussain Syed"\ngit config --global user.email "hussain.si1999@gmail.com"\n\n# 3. You wrote a new test file. Show Git you want to save it.\ngit add tests/login.spec.ts\n\n# 4. Save it in history with a message\ngit commit -m "Add login test for valid credentials"\n\n# 5. Look at what you saved\ngit log --oneline\n#   a1b2c3d Add login test for valid credentials\n\n# Every other Git command is a variation of this one flow:\n#   edit a file  ->  git add  ->  git commit  ->  git push`,
+        [
+          { q: "What is Git and why do teams use it?", a: "Git is a tool that saves the full history of a project. Teams use it because it keeps one copy of the truth, shows who changed what and why, lets many people work at the same time on branches, and lets you go back to any older version." },
+          { q: "What problem does version control solve?", a: "It removes manual copies of files. Instead of five folders named \"final\", there is one project with a history, so you can see every change, undo any change, and let several people work on the same code without overwriting each other." },
+          { q: "Why is Git called distributed?", a: "Because every clone on every laptop contains the whole history, not just the latest files. You can commit, branch and read the log with no internet, and if the server is lost, any clone can restore it." },
+          { q: "How does a QA engineer use Git day to day?", a: "Create a branch for the ticket, write or fix tests, commit in small pieces, push the branch, open a pull request, and let CI run the suite. Tags then record which version of the suite tested which release." }
+        ],
+        [
+          { q: "You work all day and commit once at 6pm with the message \"update\".", a: "Nobody can review it, you cannot undo one part of it, and in six months the message tells you nothing. Commit each finished piece of work with a message that says what and why." },
+          { q: "You think Git is only a backup.", a: "A backup gives you the files back. Git also tells you <strong>why</strong> a line exists, who wrote it, and which change broke the test - but only if your commits are small and your messages are real." },
+          { q: "You delete the <code>.git</code> folder to \"clean up\".", a: "That folder <em>is</em> the repository. Deleting it turns your project into an ordinary folder with no history, no branches and no remote." }
+        ]
+      ),
+      // 2. Git vs GitHub, Centralised vs Distributed
+      makeContent(
+        [
+          "<strong>Git</strong> is the tool on your laptop. <strong>GitHub</strong> is a website that stores a copy of your repo online. They are not the same thing.",
+          "GitLab, Bitbucket and Azure Repos do the same job as GitHub. The Git commands you type never change.",
+          "What the website adds on top: <strong>pull requests</strong>, review comments, issues, CI pipelines and permissions. Plain Git has none of that.",
+          "A <strong>remote</strong> is a nickname for a URL where another copy of the repo lives. The usual nickname is <code>origin</code>.",
+          "<strong>Local vs remote matters:</strong> a commit lives only on your laptop until you <code>git push</code>. Before that, nobody else can see it.",
+          "<strong>Scenario:</strong> you commit <code>tests/cart.spec.ts</code> at 5pm and go home. Your teammate says \"I cannot see it\" - correct, because you never pushed.",
+          "<strong>Old style (SVN):</strong> the history lived on one server, so you needed the network to commit and losing the server lost everything.",
+          "<strong>Git style:</strong> every laptop has the full history, so work continues offline and the history is copied everywhere."
+        ],
+        `# Git works perfectly with no GitHub at all\ngit init\ngit add .\ngit commit -m "Initial framework structure"\n#   full history, on your laptop, no internet used\n\n# A remote is just a nickname for a URL\ngit remote add origin https://github.com/hussain/playwright-framework.git\ngit remote -v\n#   origin  https://github.com/hussain/playwright-framework.git (fetch)\n#   origin  https://github.com/hussain/playwright-framework.git (push)\n\n# Send your commits to that copy, and remember the link\ngit push -u origin main\n\n# Take a copy of someone else's project\ngit clone https://github.com/hussain/playwright-framework.git\ngit clone https://github.com/hussain/playwright-framework.git my-tests   # different folder name\n\n# What clone quietly did for you:\n#   downloaded the whole history\n#   created the remote called origin\n#   checked out the main branch\n#   linked your main to origin/main, so plain "git push" works\n\n# Did my work reach the server?\ngit status\n#   Your branch is ahead of 'origin/main' by 2 commits    <- not pushed yet`,
+        [
+          { q: "What is the difference between Git and GitHub?", a: "<strong>Git</strong> is the version control tool that runs on your machine and stores the history. <strong>GitHub</strong> is a website that hosts a copy of a Git repository and adds pull requests, reviews, issues and CI. You can use Git with no GitHub at all." },
+          { q: "Centralised vs distributed version control?", a: "Centralised (SVN, TFS) keeps the only history on a server, so you need the network to commit and the server is a single point of failure. Distributed (Git) gives every clone the full history, so commits are local and fast and the history exists on every machine." },
+          { q: "What is a remote?", a: "A named URL pointing at another copy of the repository. <code>git remote -v</code> lists them. <code>origin</code> is the one you cloned from; <code>upstream</code> is the usual name for the original project when you are working from a fork." },
+          { q: "What does git clone do?", a: "Downloads the entire history, creates the <code>origin</code> remote, checks out the default branch, and links your local branch to the remote one so <code>git push</code> and <code>git pull</code> work without arguments." }
+        ],
+        [
+          { q: "You say \"I pushed it\" but you only committed.", a: "The commit is on your laptop only. <code>git status</code> will say <em>your branch is ahead of origin/main by 1 commit</em> - that is Git telling you it has not been shared." },
+          { q: "You clone with HTTPS and get asked for a password on every push.", a: "HTTPS needs a token each time unless it is cached; SSH uses a key. Pick one, set it up once, and stop fighting the prompt." },
+          { q: "You look for the \"pull request\" command in Git.", a: "There is no such command. Pull requests belong to GitHub/GitLab, not to Git. In plain Git the equivalent is a branch plus <code>git merge</code>." }
+        ]
+      ),
+      // 3. Installation & first-time configuration
+      makeContent(
+        [
+          "Install Git from <code>git-scm.com</code>, then check it worked with <code>git --version</code>.",
+          "Before your first commit you must set two things: your <strong>name</strong> and your <strong>email</strong>. Git stamps them into every commit.",
+          "Settings live at three levels: <strong>system</strong> (whole machine), <strong>global</strong> (your user, file <code>~/.gitconfig</code>) and <strong>local</strong> (one repo, file <code>.git/config</code>).",
+          "<strong>Local beats global beats system.</strong> That is how one work project can use a different email from everything else.",
+          "<strong>Scenario:</strong> your commits at work show your personal Gmail. Fix it by running <code>git config user.email you@company.com</code> <em>inside that repo</em>, with no <code>--global</code>.",
+          "<code>git config --list --show-origin</code> shows every setting and the file it came from - the quickest way to find out why a repo behaves oddly.",
+          "<strong>Aliases</strong> save typing: after one command, <code>git st</code> can mean <code>git status</code>.",
+          "<strong>Windows note:</strong> Windows and Linux end lines differently, so set line-ending handling once - best done with a <code>.gitattributes</code> file committed to the repo."
+        ],
+        `# Did it install?\ngit --version\n\n# Who am I? (required before the first commit)\ngit config --global user.name  "Hussain Syed"\ngit config --global user.email "hussain.si1999@gmail.com"\n\n# Sensible defaults to set once\ngit config --global init.defaultBranch main   # new repos start on main\ngit config --global pull.rebase true          # keep history in a straight line\ngit config --global fetch.prune true          # forget deleted remote branches\ngit config --global core.editor "code --wait" # use VS Code for messages\n\n# Short names for long commands\ngit config --global alias.st status\ngit config --global alias.lg "log --oneline --graph --decorate --all"\n\n# Different email for the work project only - note: NO --global\ncd ~/work/company-tests\ngit config user.email "hussain@company.com"\n\n# Why is this repo using that email?\ngit config user.email                       # value in effect here\ngit config --list --show-origin | grep user # and the file it came from\n\n# Line endings, decided by the repo instead of by each laptop\n# file: .gitattributes\n#   * text=auto eol=lf`,
+        [
+          { q: "What are the three levels of git config?", a: "<strong>system</strong> for the whole machine, <strong>global</strong> for your user in <code>~/.gitconfig</code>, and <strong>local</strong> for one repository in <code>.git/config</code>. Local wins over global, which wins over system." },
+          { q: "How do you use a different name or email for one repository?", a: "Run <code>git config user.email work@company.com</code> inside that repository without <code>--global</code>. For many work repos, use an <code>includeIf</code> block in the global config so every repo under <code>~/work/</code> picks up the work identity automatically." },
+          { q: "Why must name and email be set before committing?", a: "They are written inside every commit as the author. Changing them afterwards means rewriting history, so it is worth setting them correctly on the first day." },
+          { q: "How do you find where a setting came from?", a: "<code>git config --list --show-origin</code> prints every key with the config file that set it. That is how you explain why one repo commits with the wrong email while the rest are fine." }
+        ],
+        [
+          { q: "Six months of work commits carry your personal email.", a: "Every commit already has it, and fixing them means rewriting history. Set the repo-level email right after cloning, or use <code>includeIf</code> by folder." },
+          { q: "A merge opens a strange editor and you cannot get out.", a: "That is <code>vi</code>, Git's default. Set <code>core.editor</code> to something you know, or press <code>Esc</code> then type <code>:wq</code> and Enter." },
+          { q: "On Windows, <code>git status</code> suddenly shows every file as modified.", a: "Line endings. Windows saves CRLF, Linux and CI use LF, so whole files look rewritten. Commit a <code>.gitattributes</code> with <code>* text=auto eol=lf</code> so every machine behaves the same." }
+        ]
+      ),
+      // 4. The three areas
+      makeContent(
+        [
+          "Your work can sit in three places, and almost every confusing Git moment comes from not knowing which one it is in.",
+          "<strong>1. Working directory</strong> - the files you edit in VS Code. Real files on disk.",
+          "<strong>2. Staging area (index)</strong> - the list of changes you have picked for the next commit. Think of it as the shopping basket.",
+          "<strong>3. Repository</strong> - the saved history inside <code>.git</code>. This is the till receipt: once committed, it is recorded.",
+          "<code>git add</code> puts a change in the basket. <code>git commit</code> pays for it. <code>git push</code> sends it to the shop's server.",
+          "The basket exists so you can save <em>part</em> of your work. Two unrelated fixes in <code>pages/LoginPage.ts</code> can become two clean commits.",
+          "<strong>Scenario:</strong> you changed <code>tests/login.spec.ts</code> and <code>playwright.config.ts</code> but only the test is ready. <code>git add tests/login.spec.ts</code> and commit that alone.",
+          "<code>git status</code> always tells you which area each file is in - run it before every add, commit, reset or switch."
+        ],
+        `# Where is my work right now?\ngit status\ngit status -s\n#   ?? tests/new.spec.ts        untracked  - Git has never seen this file\n#   M  tests/login.spec.ts      staged     - in the basket (left column)\n#    M playwright.config.ts     modified   - edited but NOT in the basket\n\n# Working directory  ->  staging (the basket)\ngit add tests/login.spec.ts       # one file\ngit add .                          # everything in this folder\ngit add -p pages/LoginPage.ts      # choose change by change\n\n# Staging  ->  repository (recorded in history)\ngit commit -m "Add negative login test"\n\n# Repository  ->  remote (shared with the team)\ngit push\n\n# What exactly is in each area?\ngit diff              # edited but NOT staged\ngit diff --staged     # staged, about to be committed\ngit diff HEAD         # everything not yet committed\n\n# Take a file back out of the basket (keeps your edits)\ngit restore --staged playwright.config.ts`,
+        [
+          { q: "What are the three areas of Git?", a: "The <strong>working directory</strong> (files on disk), the <strong>staging area / index</strong> (changes chosen for the next commit) and the <strong>repository</strong> (committed history in <code>.git</code>). <code>add</code>, <code>commit</code> and <code>push</code> move work along that path." },
+          { q: "Why does Git have a staging area?", a: "So you decide what goes into a commit instead of committing everything on disk. You can stage one of two unrelated changes in a file, check it with <code>git diff --staged</code>, and keep one logical change per commit." },
+          { q: "Difference between git diff and git diff --staged?", a: "<code>git diff</code> shows what you changed but have <strong>not</strong> staged. <code>git diff --staged</code> shows what is staged and about to be committed. <code>git diff HEAD</code> shows both together." },
+          { q: "What does untracked mean?", a: "Git has never been told about the file, so it is not in history and not in the index. It shows as <code>??</code> in <code>git status -s</code>, and <code>git commit -a</code> ignores it - which is why brand-new spec files are the ones people forget to commit." }
+        ],
+        [
+          { q: "You run <code>git commit -am \"add tests\"</code> and your new file is missing on the server.", a: "<code>-a</code> only stages files Git already tracks. A brand-new <code>tests/cart.spec.ts</code> is untracked, so it is skipped and CI fails with \"file not found\". Use <code>git add</code> for new files." },
+          { q: "You stage a file, keep editing it, then commit - and the newest edit is missing.", a: "The basket holds the file as it was when you ran <code>git add</code>. Run <code>git add</code> again. If <code>git diff</code> prints anything, part of your work is not staged." },
+          { q: "You run <code>git reset --hard</code> to undo a staging mistake.", a: "That deletes your edits on disk too. To only empty the basket, use <code>git restore --staged &lt;file&gt;</code>. Always check <code>git status</code> first - the right fix depends on which area the change is in." }
+        ]
+      ),
+      // 5. Creating a repository
+      makeContent(
+        [
+          "<code>git init</code> turns a normal folder into a repository by creating the hidden <code>.git</code> folder. Nothing is uploaded anywhere.",
+          "<code>git clone &lt;url&gt;</code> copies an existing project: full history, the <code>origin</code> remote and the files, in one command.",
+          "Everything Git knows lives in <code>.git</code>: history, branches, config, hooks. Delete that folder and only plain files remain.",
+          "New repos start on the <strong>main</strong> branch; older projects use <strong>master</strong>. Both are just the default branch name.",
+          "<strong>Scenario - good first commit:</strong> create <code>.gitignore</code> <em>before</em> running <code>npm install</code>, so <code>node_modules/</code> never enters history at all.",
+          "<code>git clone --depth 1</code> takes only the latest commit. CI uses it because it is much faster - but <code>git blame</code> and <code>git bisect</code> will not work on it.",
+          "<code>git clone --bare</code> makes a repo with no files checked out. That is what a server holds.",
+          "In an automation project the repo root is the folder containing <code>package.json</code> or <code>pom.xml</code> - not the <code>tests/</code> folder inside it."
+        ],
+        `# Start a new project\nmkdir playwright-framework && cd playwright-framework\ngit init\n#   Initialized empty Git repository in .../playwright-framework/.git/\n\n# First commit: ignore rules BEFORE node_modules exists\necho "node_modules/"      >> .gitignore\necho "test-results/"      >> .gitignore\necho "playwright-report/" >> .gitignore\necho ".env"               >> .gitignore\ngit add .gitignore\ngit commit -m "Add gitignore for Playwright project"\n\n# Copy an existing project\ngit clone https://github.com/hussain/playwright-framework.git\ngit clone https://github.com/hussain/playwright-framework.git my-tests\n\n# Fast clone for a CI job - latest commit only\ngit clone --depth 1 https://github.com/hussain/playwright-framework.git\ngit fetch --unshallow        # later, if you need the full history\n\n# What is inside .git?\nls .git\n#   HEAD  config  hooks/  index  objects/  refs/\n\n# Am I inside a repo, and where is its root?\ngit rev-parse --is-inside-work-tree\ngit rev-parse --show-toplevel`,
+        [
+          { q: "Difference between git init and git clone?", a: "<code>init</code> creates a brand-new empty repository in a folder you already have - no history, no remote. <code>clone</code> copies an existing repository including its full history, sets up <code>origin</code>, and checks out the files." },
+          { q: "What is inside the .git folder?", a: "The whole repository: <code>objects</code> (every saved version), <code>refs</code> (branches and tags), <code>HEAD</code>, the <code>index</code> (staging area), <code>config</code> and <code>hooks</code>. Delete it and you lose all history." },
+          { q: "What is a shallow clone and when would you use one?", a: "<code>git clone --depth 1</code> downloads only the newest commit, which makes CI checkouts much faster on a big repo. The trade-off is that <code>blame</code>, <code>bisect</code> and comparisons with old commits do not work until you run <code>git fetch --unshallow</code>." },
+          { q: "What is a bare repository?", a: "A repository with no working files - just what is normally inside <code>.git</code>. Servers host bare repos, because nobody edits files there and a checked-out branch would clash with incoming pushes." }
+        ],
+        [
+          { q: "You run <code>git init</code> inside a folder that is already a repo.", a: "You create a repo inside a repo, and your changes quietly stop being tracked by the outer one. Run <code>git rev-parse --show-toplevel</code> first to see where you actually are." },
+          { q: "You run <code>npm install</code> before writing <code>.gitignore</code>.", a: "<code>node_modules/</code> gets committed - tens of thousands of files. Ignoring it later does not remove it from history; you also need <code>git rm --cached -r node_modules</code>." },
+          { q: "Your CI job fails on <code>git describe</code> or a diff against main.", a: "The pipeline used <code>--depth 1</code>, so there is no history to look at. Fetch more depth, or fetch the base branch as well." }
+        ]
+      ),
+      // 6. add, commit, status
+      makeContent(
+        [
+          "The daily loop never changes: edit files &rarr; <code>git status</code> &rarr; <code>git add</code> &rarr; <code>git commit</code> &rarr; <code>git push</code>.",
+          "<code>git add .</code> stages everything in the current folder and below. <code>git add -A</code> stages everything in the whole repo, including deleted files.",
+          "<code>git add -p</code> shows each change one by one and asks \"stage this?\" - perfect when one file holds two unrelated fixes.",
+          "<code>git commit -m \"...\"</code> saves what is staged. <code>git commit -am \"...\"</code> stages and commits in one step, but <strong>only files Git already tracks</strong>.",
+          "A good message: short line saying what you did, then a blank line, then why, plus the ticket id. \"Fix login test\" is fine; \"update\" is not.",
+          "Team convention many projects use: <code>feat:</code>, <code>fix:</code>, <code>test:</code>, <code>chore:</code> at the start of the message.",
+          "<strong>Scenario:</strong> you commit and immediately notice you forgot <code>pages/CartPage.ts</code>. <code>git add</code> it and run <code>git commit --amend --no-edit</code> to fold it into the same commit - safe because you have not pushed yet.",
+          "Commit <strong>one logical change</strong> at a time. It makes review real, undo simple, and lets <code>git bisect</code> point at something meaningful."
+        ],
+        `# The daily loop, with real files\ngit status -s\ngit add tests/checkout.spec.ts pages/CheckoutPage.ts\ngit commit -m "test(checkout): cover guest checkout with an invalid card\n\nThe negative path was missing from the regression suite.\nRefs ABC-142"\n\n# One file, two unrelated changes -> two commits\ngit add -p pages/LoginPage.ts\n#   Stage this hunk [y,n,q,a,d,s,e,?]? y     <- the locator fix\n#   Stage this hunk [y,n,q,a,d,s,e,?]? n     <- the unrelated rename\ngit commit -m "fix(login): use role locator instead of brittle xpath"\n\n# Shortcut - tracked files only, never new files\ngit commit -am "chore: bump playwright to 1.49"\n\n# Forgot a file, or a typo in the message? (only before pushing)\ngit add pages/CartPage.ts\ngit commit --amend --no-edit         # keep the same message\ngit commit --amend -m "test(cart): add empty cart case"\n\n# Check before you commit\ngit diff --staged`,
+        [
+          { q: "What is the difference between git add . and git add -A?", a: "<code>git add .</code> stages changes in the current folder and below. <code>git add -A</code> stages everything in the repository, including deletions outside your current folder. Run from the repo root they behave almost the same in modern Git." },
+          { q: "What does git add -p do?", a: "It walks through your changes one block at a time and asks whether to stage each one, so two unrelated changes in the same file can become two separate commits instead of one mixed commit." },
+          { q: "What makes a good commit message?", a: "A short summary line in the imperative (\"Add retry to flaky checkout test\"), a blank line, then why the change was needed and the ticket id. Prefixes like <code>fix:</code> and <code>test:</code> also let tools build a changelog automatically." },
+          { q: "When is git commit --amend safe?", a: "Only while the commit is still on your machine. Amending replaces the commit with a new one, so once it is pushed and pulled by someone else, amending forces a push that can destroy their work." }
+        ],
+        [
+          { q: "You run <code>git commit -am</code> and the new spec file never reaches the branch.", a: "<code>-a</code> covers tracked files only, and a new file is untracked. CI then fails on a missing import. Use <code>git add tests/new.spec.ts</code> first." },
+          { q: "One commit contains a fix, a rename and a version bump.", a: "It cannot be reviewed or reverted cleanly, and <code>bisect</code> lands on three changes at once. Split it with <code>git add -p</code>." },
+          { q: "You amend a commit you already pushed.", a: "The remote still has the old one, so your push is rejected. Either add a new commit, or force <strong>with lease</strong> if the branch is definitely only yours." }
+        ]
+      ),
+      // 7. Viewing history
+      makeContent(
+        [
+          "<code>git log</code> shows the history, newest first. The plain output is hard to read, so everyone adds options.",
+          "The one to memorise: <code>git log --oneline --graph --decorate --all</code> - one line per commit, branches drawn as a picture.",
+          "Narrow it down with <code>--author</code>, <code>--since=\"2 weeks ago\"</code>, <code>-5</code>, or <code>-- tests/login.spec.ts</code> for one file's history.",
+          "<code>git show &lt;sha&gt;</code> opens one commit fully: message, author, date and the exact lines changed.",
+          "<strong>Scenario:</strong> \"who deleted the wait from <code>pages/LoginPage.ts</code>?\" &rarr; <code>git log -S \"waitForTimeout\" --oneline</code> lists the commits where that text appeared or disappeared.",
+          "<strong>Scenario:</strong> \"why is line 47 written like that?\" &rarr; <code>git blame -L 40,60 pages/LoginPage.ts</code> gives the commit for each line, then <code>git show</code> that commit to read the reason.",
+          "Add <code>-w</code> to blame so a formatting commit does not hide the real author, and <code>-C</code> to follow code moved from another file.",
+          "<code>git diff main..feature</code> compares two branches; three dots (<code>main...feature</code>) compares against the point where they split, which is what a pull request shows."
+        ],
+        `# Readable history\ngit log --oneline --graph --decorate --all\ngit log --oneline -10\n\n# Narrow the search\ngit log --author="Hussain" --since="2 weeks ago" --no-merges\ngit log --oneline -- tests/checkout.spec.ts      # this file only\ngit log -p -- playwright.config.ts               # with the diffs shown\n\n# Open one commit\ngit show a1b2c3d\ngit show a1b2c3d --stat            # just the file names it touched\n\n# Compare\ngit diff                           # not staged\ngit diff --staged                  # staged\ngit diff main..feature             # branch tip vs branch tip\ngit diff main...feature            # what the pull request shows\ngit diff --name-only main          # file names only\n\n# "When did this code appear or disappear?"\ngit log -S "waitForTimeout" --oneline\n\n# "Who wrote these lines, and why?"\ngit blame -L 40,60 -w -C pages/LoginPage.ts\ngit show a1b2c3d                   # read that commit's message`,
+        [
+          { q: "How do you view the commit history in a readable way?", a: "<code>git log --oneline --graph --decorate --all</code>. Add <code>--author</code> or <code>--since</code> to narrow it, <code>-- path/to/file</code> for one file, <code>-p</code> to see the diffs, and <code>--no-merges</code> when merge commits hide the real work." },
+          { q: "How do you find the commit where a piece of code was added or removed?", a: "<code>git log -S \"text\" --oneline</code>. It finds commits where the number of occurrences of that text changed, so it points at where the code was introduced or deleted rather than merely mentioned. <code>-G</code> does the same with a regex." },
+          { q: "What is the difference between two dots and three dots?", a: "In <code>git log</code>, <code>A..B</code> means commits on B that A does not have. In <code>git diff</code>, <code>A..B</code> compares the two tips while <code>A...B</code> compares against the point where the branches split - the three-dot form is what a pull request displays." },
+          { q: "How do you find who changed a particular line?", a: "<code>git blame -L 40,60 file</code> shows the commit behind each line, then <code>git show &lt;sha&gt;</code> reads the full message. Add <code>-w</code> and <code>-C</code> so a reformat or a moved file does not hide the real author." }
+        ],
+        [
+          { q: "Blame says one person wrote the entire file yesterday.", a: "A Prettier or formatting commit touched every line. Use <code>git blame -w</code> to ignore whitespace and <code>-C</code> to follow code moved between files." },
+          { q: "The diff for your small branch looks enormous.", a: "You used two dots, so it includes everything <code>main</code> gained since you branched. Use <code>git diff main...feature</code>." },
+          { q: "You grep for a function and cannot find it anywhere.", a: "<code>grep</code> only searches the files you have right now. If the code was deleted, only history has it: <code>git log -S \"functionName\"</code>." }
+        ]
+      ),
+      // 8. .gitignore
+      makeContent(
+        [
+          "<code>.gitignore</code> is a plain text file listing what Git should <strong>not</strong> track - things that are generated, downloaded or secret.",
+          "Simple rule for an automation repo: <strong>if a test run creates it, do not commit it</strong>. Reports, screenshots, videos, traces, <code>node_modules/</code>, <code>target/</code>.",
+          "Never commit secrets. Ignore <code>.env</code> and commit a <code>.env.example</code> with fake values so new joiners know what to fill in.",
+          "<strong>The catch:</strong> <code>.gitignore</code> only works on files Git is <em>not already tracking</em>. Adding an already-committed file to it does nothing.",
+          "<strong>Scenario:</strong> <code>node_modules/</code> was committed last month. Fix: add it to <code>.gitignore</code>, run <code>git rm --cached -r node_modules</code>, then commit. The folder stays on disk.",
+          "Patterns: <code>*.log</code> by extension, <code>build/</code> for a folder, <code>/config.json</code> only at the root, and <code>!keep.png</code> to make an exception.",
+          "For files only you have - IDE settings, scratch scripts - use <code>.git/info/exclude</code>. It is never committed, so you do not force your setup on the team.",
+          "<code>git check-ignore -v test-results/report.json</code> tells you exactly which line of which file is ignoring something."
+        ],
+        `# file: .gitignore  (a real one for a Playwright + Java repo)\n\n# installed or built - never source\nnode_modules/\ntarget/\ndist/\n\n# created by every test run\ntest-results/\nplaywright-report/\nallure-results/\nscreenshots/\nvideos/\n*.png\n!tests/**/expected/*.png     # but DO keep visual baselines\n\n# secrets and local settings\n.env\n.env.local\n*.pem\n\n# editor / OS noise\n.idea/\n.vscode/\n.DS_Store\n\n# ---------- commands ----------\n\n# It is already committed, so ignoring is not enough\ngit rm --cached -r node_modules\ngit commit -m "chore: stop tracking node_modules"\n#   the folder stays on your disk, Git just forgets it\n\n# Why is this file being ignored?\ngit check-ignore -v test-results/report.json\n#   .gitignore:8:test-results/    test-results/report.json\n\n# Ignore something on my machine only (not committed)\necho ".idea/" >> .git/info/exclude`,
+        [
+          { q: "What should go into .gitignore in a test automation project?", a: "<code>node_modules/</code>, <code>target/</code>, <code>test-results/</code>, <code>playwright-report/</code>, <code>allure-results/</code>, screenshots, videos, traces, <code>.env</code> and IDE folders. Anything a run generates is output, not source - committing it creates noise and constant conflicts." },
+          { q: "Why does .gitignore not work on a file you already committed?", a: "Because it only applies to files Git is not tracking yet. Once a file is tracked, ignore rules are ignored. Run <code>git rm --cached &lt;file&gt;</code> to stop tracking it while keeping it on disk, then commit that together with the ignore rule." },
+          { q: "How do you ignore a file only on your own machine?", a: "Add it to <code>.git/info/exclude</code>, which is never committed, or set a global ignore file with <code>core.excludesFile</code>. Personal editor settings belong there, not in the shared <code>.gitignore</code>." },
+          { q: "How do you find out why a file is ignored?", a: "<code>git check-ignore -v path/to/file</code> prints the exact file, line number and pattern that matched - including the common case where a parent folder is ignored." }
+        ],
+        [
+          { q: "You commit <code>.env</code> once, then add it to <code>.gitignore</code>.", a: "The password is still in history and in every clone. Ignoring only stops future commits. Rotate the credential, and rewrite history only if it is truly needed." },
+          { q: "Your visual snapshot tests fail on a fresh clone.", a: "<code>*.png</code> is ignored, so the expected baselines were never committed. Add an exception line such as <code>!tests/**/expected/*.png</code>." },
+          { q: "You add a rule for <code>reports/summary.html</code> but it stays ignored.", a: "The parent folder <code>reports/</code> is ignored, so nothing inside it can be un-ignored on its own. Un-ignore the folder first, then the file." }
+        ]
+      ),
+      // 9. Branches
+      makeContent(
+        [
+          "A <strong>branch</strong> is just a pointer to a commit - a tiny file. That is why creating one is instant, however big the project is.",
+          "Branches let you work on <code>tests/payment.spec.ts</code> without touching what everyone else sees on <code>main</code>.",
+          "<code>HEAD</code> means \"where I am now\" - the branch you are currently on.",
+          "<code>git switch -c feature/ABC-123-login</code> creates a branch and moves you onto it. <code>git switch main</code> goes back.",
+          "Modern Git splits the old confusing <code>checkout</code>: <strong><code>switch</code></strong> for branches, <strong><code>restore</code></strong> for file contents.",
+          "Name branches after the ticket: <code>feature/ABC-123-login-tests</code>, <code>bugfix/ABC-456-flaky-checkout</code>. A name like <code>test2</code> helps nobody.",
+          "<strong>Detached HEAD:</strong> if you check out a commit or a tag directly, you are not on a branch. Commits made there are lost when you switch away unless you create a branch first.",
+          "Keep branches short - <strong>days, not weeks</strong>. A month-old test branch drifts away from the app it is supposed to test."
+        ],
+        `# Create and move around\ngit switch -c feature/ABC-123-login-tests     # create + switch\ngit switch main                               # back to main\ngit switch -                                  # the branch you were on before\n\n# The older commands, still used everywhere\ngit checkout -b feature/ABC-123-login-tests\ngit checkout main\n\n# See what exists\ngit branch                # local branches, * marks the current one\ngit branch -r             # branches on the remote\ngit branch -a             # both\ngit branch -vv            # + last commit and what each one tracks\ngit branch --show-current\n\n# Rename and delete\ngit branch -m better-name                        # rename current branch\ngit branch -d feature/ABC-123-login-tests        # safe - refuses if unmerged\ngit branch -D abandoned-experiment               # force delete\ngit push origin --delete feature/ABC-123-login-tests   # delete on the server\n\n# Detached HEAD, and how to keep the work\ngit checkout a1b2c3d\n#   You are in 'detached HEAD' state...\ngit switch -c rescue-branch      # now the commits belong somewhere`,
+        [
+          { q: "What is a branch in Git?", a: "A lightweight movable pointer to a commit, stored as a small file in <code>.git/refs/heads</code>. Each new commit moves the pointer forward. Because it is only a pointer, creating and switching branches costs almost nothing." },
+          { q: "What is HEAD, and what is a detached HEAD?", a: "<code>HEAD</code> points at the branch you are on, and so at the commit checked out. Checking out a commit or tag directly <strong>detaches</strong> it - commits made there belong to no branch and disappear from view once you switch away, unless you create a branch first." },
+          { q: "Difference between git switch, git checkout and git restore?", a: "<code>checkout</code> used to do both jobs, which is why it confused people. Modern Git splits it: <code>git switch</code> changes branches, <code>git restore</code> deals with file contents - <code>restore --staged</code> unstages, plain <code>restore</code> throws away edits." },
+          { q: "Difference between git branch -d and -D?", a: "<code>-d</code> deletes only if the branch is already merged, protecting unmerged work. <code>-D</code> deletes regardless. If you delete something by accident, <code>git reflog</code> still has the commit for around thirty days." }
+        ],
+        [
+          { q: "You commit three hours of work while in detached HEAD.", a: "Nothing points at those commits, so switching branches seems to lose them. They are still in <code>git reflog</code>: run <code>git branch rescue &lt;sha&gt;</code>. Better habit - create the branch before you start." },
+          { q: "<code>git switch main</code> refuses because of local changes.", a: "Switching would overwrite your edits. Commit them, stash them, or make a quick WIP commit. Do not force the switch." },
+          { q: "Your branch is two months old and the merge is a nightmare.", a: "It drifted from the app it tests, so it passes on the branch and fails on main. Merge or rebase from main daily and keep branches short." }
+        ]
+      ),
+      // 10. Merging
+      makeContent(
+        [
+          "<code>git merge</code> brings another branch's work <strong>into the branch you are standing on</strong>. Always check where you are first.",
+          "<strong>Fast-forward:</strong> if <code>main</code> gained nothing while you worked, Git just slides the pointer forward. No extra commit.",
+          "<strong>Three-way merge:</strong> if both branches moved, Git compares your tip, their tip and the point where they split, then makes a <strong>merge commit</strong> with two parents.",
+          "<code>--no-ff</code> forces a merge commit even when a fast-forward was possible, so history shows the feature existed as a branch.",
+          "<code>--squash</code> takes all the branch's changes and lets you record them as one commit - the same idea as GitHub's \"Squash and merge\" button.",
+          "<strong>The safe order:</strong> update <code>main</code>, merge <code>main</code> <em>into your branch</em>, fix conflicts there, run the tests, then merge your branch into <code>main</code>.",
+          "<strong>Scenario:</strong> merge finishes with no conflict but the suite fails. Normal - Git merges text, not meaning. Someone renamed a method in <code>pages/LoginPage.ts</code> while you added a call to it.",
+          "<code>git merge --abort</code> cancels a merge that has gone wrong and puts everything back."
+        ],
+        `# Bring the feature branch into main\ngit switch main\ngit pull                         # make sure main is up to date\ngit merge feature/ABC-123-login-tests\n\n# Fast-forward - main had gained nothing\n#   Updating a1b2c3d..f4e5d6c\n#   Fast-forward\n\n# Three-way - both moved, so a merge commit is created\n#   Merge made by the 'ort' strategy.\n\n# Always record where the feature was integrated\ngit merge --no-ff feature/ABC-123-login-tests -m "Merge login test suite"\n\n# Take the work as one single commit\ngit merge --squash feature/ABC-123-login-tests\ngit commit -m "test: add login suite"\n\n# The safer habit: fix conflicts on YOUR branch, not on main\ngit switch feature/ABC-123-login-tests\ngit merge main                   # conflicts happen here\nnpx playwright test              # prove it still works\ngit switch main\ngit merge feature/ABC-123-login-tests\n\n# It went wrong\ngit merge --abort`,
+        [
+          { q: "What is the difference between a fast-forward merge and a three-way merge?", a: "If the target branch gained no commits since you branched off, Git just moves its pointer onto your commits - a <strong>fast-forward</strong>, with no merge commit. If both branches moved, Git does a <strong>three-way merge</strong> using both tips and their common ancestor, and records a merge commit with two parents." },
+          { q: "When would you use --no-ff?", a: "When you want history to show that a feature branch existed and where it was integrated. It creates the merge commit even when a fast-forward was possible, which also makes reverting the whole feature one <code>git revert -m 1</code>." },
+          { q: "What does git merge --squash do?", a: "It applies all the branch's changes to your working tree so you can record them as a single commit, with no link back to the branch. Because there is no merge link, the branch is not marked as merged and should be deleted afterwards." },
+          { q: "Why merge main into your branch before merging back?", a: "So conflicts are resolved on your branch, where you can run the suite and fix things safely, instead of on <code>main</code> where the whole team is affected. The final merge into main is then clean." }
+        ],
+        [
+          { q: "You run <code>git merge main</code> while standing on main.", a: "Nothing happens, or worse, you merge in the wrong direction and unfinished work lands on main. Check <code>git branch --show-current</code> before every merge." },
+          { q: "The merge is clean but the tests fail.", a: "Git merges text, not behaviour. One branch renamed <code>login()</code> while the other added a call to it. Always run the suite after merging." },
+          { q: "You squash-merge a branch and then merge it again.", a: "A squash leaves no merge link, so Git replays the same commits and conflicts with itself. Delete the branch right after a squash merge." }
+        ]
+      ),
+      // 11. Merge conflicts
+      makeContent(
+        [
+          "A <strong>conflict</strong> happens when two branches change the <strong>same lines</strong> of the same file, and Git cannot decide which one is right.",
+          "Editing the same file is fine. Editing the <em>same lines</em> is what conflicts.",
+          "Git pauses and writes markers into the file. Your job is to edit it to the correct final version and delete the markers.",
+          "Between <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> and <code>=======</code> is <strong>your</strong> version. Between <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> is <strong>the other branch's</strong> version.",
+          "Then: <code>git add &lt;file&gt;</code> to say \"resolved\", and <code>git commit</code> (or <code>git rebase --continue</code>) to finish.",
+          "<strong>Scenario:</strong> both of you edited the click in <code>pages/CheckoutPage.ts</code> - you used <code>getByRole</code>, they used <code>#pay-now</code>. Keep the role locator, delete the markers, add, commit, run the test.",
+          "<strong>During a rebase the two sides swap over</strong>, because your commits are being replayed on top of the other branch. That is why people accidentally throw away their own work.",
+          "<code>git merge --abort</code> or <code>git rebase --abort</code> gets you back to before the mess started."
+        ],
+        `# A conflict appears\ngit merge feature/checkout\n#   CONFLICT (content): Merge conflict in pages/CheckoutPage.ts\n#   Automatic merge failed; fix conflicts and then commit the result.\n\n# 1. Which files?\ngit status\n#   Unmerged paths:\n#     both modified:   pages/CheckoutPage.ts\ngit diff --name-only --diff-filter=U      # just the conflicted names\n\n# 2. Open the file - this is what Git wrote into it\n#   <<<<<<< HEAD                                   <- your version\n#   await this.page.getByRole('button', { name: 'Pay' }).click();\n#   =======\n#   await this.page.locator('#pay-now').click();   <- their version\n#   >>>>>>> feature/checkout\n\n# 3. Edit it to what it SHOULD be, delete all three marker lines\n# 4. Mark it resolved and finish\ngit add pages/CheckoutPage.ts\ngit commit                       # during a merge\ngit rebase --continue            # during a rebase\n\n# Take one whole side instead of editing (careful)\ngit checkout --ours   package-lock.json\ngit checkout --theirs package-lock.json\n\n# Start over\ngit merge --abort\ngit rebase --abort`,
+        [
+          { q: "How do you resolve a merge conflict?", a: "<code>git status</code> lists the conflicted files. Edit each one to the version it should be and delete the <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> / <code>=======</code> / <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> markers, then <code>git add</code> each file and <code>git commit</code>, or <code>git rebase --continue</code> during a rebase. Re-run the affected tests before pushing." },
+          { q: "What do the conflict markers mean?", a: "Between <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> and <code>=======</code> is the version on the branch you are on; between <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> is the incoming version. In a rebase the roles are reversed, because your commits are the ones being replayed." },
+          { q: "What do --ours and --theirs mean during a conflict?", a: "In a merge, <code>--ours</code> is your current branch and <code>--theirs</code> is the incoming branch. In a <strong>rebase they swap</strong>, since your commits are replayed on top of the target - so <code>--ours</code> is the branch you are rebasing onto. Getting it backwards quietly deletes your own work." },
+          { q: "How do you resolve a conflict in package-lock.json?", a: "Do not edit it by hand. Fix <code>package.json</code> first because that holds the intent, take either side of the lock file, then run <code>npm install</code> so the lock is regenerated, and commit that. Run the suite once, because transitive versions may have moved." }
+        ],
+        [
+          { q: "You commit with <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> still in the file.", a: "The code will not compile and the marker shows up in the pull request. Search the repo for the marker before committing, or add a pre-commit hook that blocks it." },
+          { q: "You take one side just to make the conflict disappear.", a: "Whichever side you dropped, that person's work is gone with no trace. Read both, then write the version that is actually correct - often a mix of the two." },
+          { q: "Two people keep appending to <code>testng.xml</code> and it conflicts every week.", a: "Almost always both sides should be kept, since each added a different class. Keep both, then actually run the suite - a badly merged XML file can still be valid and silently run nothing." }
+        ]
+      ),
+      // 12. Rebase
+      makeContent(
+        [
+          "<code>git rebase main</code> picks up your branch's commits and <strong>replays them on top of the latest main</strong>, so history becomes one straight line with no merge commit.",
+          "Rebase does not move your commits - it <strong>makes new ones with new ids</strong>. The old ones stay in the reflog for a while.",
+          "<strong>The golden rule: never rebase a branch other people have already pulled.</strong> Their copy and yours no longer match, and their next pull creates duplicates.",
+          "Simple version: <strong>rebase your own unpushed work, merge anything shared.</strong>",
+          "<code>git rebase -i HEAD~4</code> opens an <strong>interactive rebase</strong> - a list of your last four commits that you can rewrite before opening a pull request.",
+          "The words in that list: <code>pick</code> keep, <code>reword</code> change the message, <code>edit</code> pause and change the content, <code>squash</code> join into the one above, <code>fixup</code> join and drop the message, <code>drop</code> delete.",
+          "<strong>Scenario:</strong> your branch has \"add test\", \"fix typo\", \"wip\", \"fix typo again\". Squash them into one clean commit before review.",
+          "After rebasing a branch you already pushed, the push must be forced - always with <code>--force-with-lease</code>, which stops if someone else pushed meanwhile."
+        ],
+        `# Put my branch on top of the latest main\ngit switch feature/ABC-123\ngit fetch origin\ngit rebase origin/main\n#   Successfully rebased and updated refs/heads/feature/ABC-123\n\n# A conflict during a rebase - handled one commit at a time\n#   CONFLICT (content): Merge conflict in pages/LoginPage.ts\ngit add pages/LoginPage.ts\ngit rebase --continue\ngit rebase --abort               # or give up entirely\n\n# Clean up messy commits before raising the PR\ngit rebase -i HEAD~4\n\n#   pick   a1b2c3d test: add login happy path\n#   squash b2c3d4e fix typo\n#   fixup  c3d4e5f wip\n#   reword d4e5f6a test: add locked account case\n#\n#   pick reword edit squash fixup drop\n#   -> four messy commits become two clean ones\n\n# The branch was already pushed, so the push must be forced\ngit push --force-with-lease\n#   safe: it aborts if a teammate pushed while you were rebasing\n\n# Keep a long branch fresh - do this daily, not at the end\ngit fetch origin && git rebase origin/main`,
+        [
+          { q: "What is the difference between merge and rebase?", a: "<strong>Merge</strong> keeps both histories and adds a merge commit - safe and honest on shared branches. <strong>Rebase</strong> replays your commits on top of the target for a straight-line history, but gives them new ids, so it must never be used on a branch others have already pulled." },
+          { q: "What is the golden rule of rebasing?", a: "Never rebase a branch other people have pulled. Rebasing rewrites commits with new hashes, so everyone else's history diverges and their next pull creates duplicate commits. Rebase your own unpushed work; merge anything shared." },
+          { q: "What is an interactive rebase and what can you do with it?", a: "<code>git rebase -i HEAD~n</code> opens a list of those commits. <code>pick</code> keeps a commit, <code>reword</code> edits its message, <code>edit</code> pauses so you can change content, <code>squash</code> folds it into the one above keeping both messages, <code>fixup</code> folds it in and throws the message away, <code>drop</code> removes it, and moving the lines reorders the commits." },
+          { q: "Why does a rebase need a force push?", a: "Because your commits now have new ids, so your branch and the remote branch have diverged. <code>--force-with-lease</code> is the safe version: it checks the remote is still where you last saw it and refuses if someone else has pushed." }
+        ],
+        [
+          { q: "You rebase a branch two other testers are using.", a: "Their commits are now duplicates and their next pull is a mess. Merge instead on shared branches - or, if it has already happened, tell them to reset to the new remote state." },
+          { q: "The same conflict in <code>pages/LoginPage.ts</code> appears on every commit of the rebase.", a: "A rebase replays commits one at a time, so a repeated conflict repeats too. Run <code>git config --global rerere.enabled true</code> so Git records your resolution and replays it automatically." },
+          { q: "You use <code>--force</code> instead of <code>--force-with-lease</code>.", a: "Plain force overwrites the remote no matter what, deleting any commit pushed while you were rebasing. The lease version aborts instead of destroying it." }
+        ]
+      ),
+      // 13. Undoing changes
+      makeContent(
+        [
+          "Before undoing anything, ask one question: <strong>where is the change - on disk, staged, committed, or already pushed?</strong> The answer decides the command.",
+          "<strong>On disk, not staged:</strong> <code>git restore tests/login.spec.ts</code> throws the edit away and brings back the last committed version.",
+          "<strong>Staged by mistake:</strong> <code>git restore --staged tests/login.spec.ts</code> takes it out of the basket but keeps your edits.",
+          "<strong>Committed but not pushed:</strong> <code>git reset</code> moves the branch pointer back. Three flavours: <code>--soft</code> keeps changes staged, <code>--mixed</code> (default) keeps them as edits, <code>--hard</code> deletes them.",
+          "<strong>Already pushed:</strong> use <code>git revert &lt;sha&gt;</code>. It makes a <em>new</em> commit that undoes the old one, so nobody's history is rewritten.",
+          "<strong>Simple rule: reset for private work, revert for shared work.</strong> That one line answers most \"how do you undo\" questions.",
+          "<strong>Scenario:</strong> you committed to <code>main</code> by mistake and have not pushed. <code>git branch feature/fix</code> to save it, <code>git reset --hard HEAD~1</code> to rewind main, then <code>git switch feature/fix</code>.",
+          "<code>git clean -fd</code> deletes untracked files. It is the one truly dangerous command, because Git never saw those files - always run <code>git clean -nd</code> first to preview."
+        ],
+        `# --- not staged: throw away edits to one file ---\ngit restore tests/login.spec.ts\ngit restore .                       # all files (careful)\n\n# --- staged by mistake: unstage, keep the edits ---\ngit restore --staged playwright.config.ts\n\n# --- committed, not pushed ---\ngit reset --soft  HEAD~1     # undo commit, changes stay STAGED\ngit reset --mixed HEAD~1     # undo commit, changes stay as edits (default)\ngit reset --hard  HEAD~1     # undo commit AND delete the changes\n\n# --- already pushed: never reset, always revert ---\ngit revert a1b2c3d\n#   creates a new commit "Revert ..." - history stays honest\ngit revert -m 1 <merge-sha>         # reverting a merge commit\n\n# --- committed to main by mistake (not pushed) ---\ngit branch feature/fix               # save the commit on a branch\ngit reset --hard HEAD~1              # rewind main\ngit switch feature/fix               # carry on there\n\n# --- untracked junk ---\ngit clean -nd                        # PREVIEW what would be deleted\ngit clean -fd                        # actually delete it\n\n# --- match the remote exactly (destructive) ---\ngit fetch origin\ngit reset --hard origin/main`,
+        [
+          { q: "What is the difference between git reset and git revert?", a: "<code>reset</code> moves the branch pointer back and rewrites history - fine for commits that are still only on your machine. <code>revert</code> creates a <strong>new</strong> commit that undoes an old one, leaving history intact, which makes it the only safe undo for something already pushed to a shared branch." },
+          { q: "Explain reset --soft, --mixed and --hard.", a: "All three move the branch pointer. <code>--soft</code> keeps your changes <strong>staged</strong>, <code>--mixed</code> (the default) keeps them as unstaged edits, and <code>--hard</code> throws them away completely." },
+          { q: "How do you undo a commit that is already pushed to a shared branch?", a: "<code>git revert &lt;sha&gt;</code>. Never reset and force-push a shared branch: everyone who pulled still has the old history and will either push it back or lose work. Revert is honest - the history shows the mistake and the correction." },
+          { q: "What does git clean do and why is it dangerous?", a: "<code>git clean -fd</code> deletes untracked files and folders. It is dangerous because those files were never committed, so nothing can bring them back. Always run <code>git clean -nd</code> first to see what would be removed." }
+        ],
+        [
+          { q: "You run <code>git reset --hard</code> to undo a staging mistake.", a: "It also wipes uncommitted edits in your working folder. To only unstage, use <code>git restore --staged &lt;file&gt;</code>." },
+          { q: "You reset and force-push a branch your team is using.", a: "Everyone who pulled has the old commits, so the next push puts them back or someone loses work. On shared branches the answer is always <code>revert</code>." },
+          { q: "You run <code>git clean -fd</code> to tidy up and lose a new spec file.", a: "It was untracked, so there is no copy anywhere. Preview with <code>-nd</code> first, and commit new files early." }
+        ]
+      ),
+      // 14. Stash
+      makeContent(
+        [
+          "<code>git stash</code> puts your unfinished changes aside and gives you a clean working folder, without making a commit.",
+          "<strong>Scenario:</strong> you are half way through <code>pages/CartPage.ts</code> when a production bug arrives. Stash the work, switch to a hotfix branch, fix it, come back and restore.",
+          "<code>git stash push -m \"cart page wip\"</code> saves it with a name. <code>git stash list</code> shows the stack.",
+          "<code>git stash pop</code> brings the top one back and removes it from the list. <code>git stash apply</code> brings it back but keeps it in the list - safer if the apply might conflict.",
+          "<strong>Add <code>-u</code> for new files.</strong> By default a brand-new <code>tests/cart.spec.ts</code> is not stashed - that is why people think a file vanished.",
+          "Stashes are <strong>local only</strong>. They are never pushed, teammates cannot see them, and they are easy to forget about.",
+          "For anything important, a <strong>throwaway WIP commit on a branch</strong> is safer: it can be pushed, recovered from the reflog, and squashed away later.",
+          "Use the stash for minutes, not days. A three-week-old stash is work nobody will ever find again."
+        ],
+        `# Urgent bug arrives while you are mid-change\ngit status\n#    M pages/CartPage.ts\n#   ?? tests/cart.spec.ts        <- NEW file\n\ngit stash push -u -m "cart page wip"     # -u also stashes the new file\n#   working folder is now clean\n\ngit switch -c hotfix/ABC-999\n# ... fix, commit, push ...\n\n# Come back and carry on\ngit switch feature/cart\ngit stash list\n#   stash@{0}: On feature/cart: cart page wip\ngit stash pop                 # restore and remove from the list\n# or\ngit stash apply stash@{0}     # restore but keep it in the list\n\n# Other useful ones\ngit stash show -p stash@{0}   # what is inside it\ngit stash drop stash@{0}      # delete one\ngit stash clear               # delete all (no undo)\n\n# The safer habit for anything that matters\ngit switch -c wip/cart-page\ngit add -A && git commit -m "wip: cart page, do not review"\ngit push -u origin wip/cart-page     # now it exists somewhere else too`,
+        [
+          { q: "What is git stash and when do you use it?", a: "It parks your uncommitted changes and leaves a clean working folder, so you can switch branches or pull. <code>git stash list</code> shows the stack, <code>pop</code> restores and removes the top entry, <code>apply</code> restores and keeps it. Use it for short interruptions like an urgent bug fix." },
+          { q: "Difference between stash pop and stash apply?", a: "<code>pop</code> applies the stash and deletes it from the list. <code>apply</code> applies it and keeps it, which is safer when the restore might conflict - if it goes wrong you still have the stash." },
+          { q: "What does the -u flag add?", a: "It stashes <strong>untracked</strong> files too. Without it, brand-new files are left in the working folder, which is exactly why a new spec file seems to disappear after a pop - it was never stashed in the first place." },
+          { q: "Why is a WIP commit often safer than a stash?", a: "Stashes are local, unnamed by default, invisible to the team, easy to forget, and not protected by the reflog the way commits are. A throwaway commit on a branch can be pushed, reviewed, recovered and squashed away later." }
+        ],
+        [
+          { q: "You stash, then pop days later and hit conflicts everywhere.", a: "The branch moved on while the stash stood still. Restore soon after stashing, or use a WIP commit that you can rebase properly." },
+          { q: "Your new file is missing after a stash and pop.", a: "You forgot <code>-u</code>, so the untracked file was never stashed. It is still on disk - <code>git status</code> will show it as <code>??</code>." },
+          { q: "You run <code>git stash clear</code> to tidy up.", a: "Every stash is deleted, and there is no reflog for stashes you dropped. Check <code>git stash list</code> before clearing." }
+        ]
+      ),
+      // 15. Cherry-pick
+      makeContent(
+        [
+          "<code>git cherry-pick &lt;sha&gt;</code> copies <strong>one specific commit</strong> onto the branch you are on, without bringing everything else with it.",
+          "<strong>Scenario:</strong> a fix on <code>main</code> is also needed on <code>release/2.4</code>, but you cannot merge all of main into the release branch. Cherry-pick just that commit.",
+          "The copy is a <strong>new commit with a new id</strong>. The change is the same; the commit is not.",
+          "<code>-x</code> adds \"(cherry picked from commit abc123)\" to the message, so later you can trace where it came from. Always use it across release branches.",
+          "Conflicts work exactly like a merge: fix the file, <code>git add</code>, then <code>git cherry-pick --continue</code>. <code>--abort</code> backs out.",
+          "You can pick a range: <code>git cherry-pick abc123..def456</code>.",
+          "<strong>Use it rarely.</strong> If you cherry-pick every week, the branching model is wrong.",
+          "Regular cherry-picking fills history with duplicate changes, which makes later merges conflict and makes <code>git bisect</code> misleading."
+        ],
+        `# The fix is on main; the release branch needs it too\ngit log --oneline main -3\n#   f4e5d6c fix(login): handle expired session banner   <- this one\n#   a1b2c3d test: add cart cases\n\ngit switch release/2.4\ngit cherry-pick -x f4e5d6c\n#   [release/2.4 9a8b7c6] fix(login): handle expired session banner\n#   message now ends with: (cherry picked from commit f4e5d6c)\n\n# Conflict while picking\n#   CONFLICT (content): Merge conflict in pages/LoginPage.ts\ngit add pages/LoginPage.ts\ngit cherry-pick --continue\ngit cherry-pick --abort           # or back out\n\n# Several commits at once\ngit cherry-pick abc123..def456    # a range\ngit cherry-pick abc123 def456     # two specific ones\n\n# Take the change but do not commit it yet\ngit cherry-pick -n f4e5d6c\ngit status                        # staged, ready for you to adjust\n\n# The better alternative when it happens often:\n# fix on the OLDEST supported branch, then merge that branch forward\ngit switch release/2.4 && git merge hotfix/session-banner\ngit switch main       && git merge release/2.4`,
+        [
+          { q: "What is git cherry-pick and when would you use it?", a: "It copies one specific commit onto another branch. The classic case is a hotfix that must land on both <code>release</code> and <code>main</code> without dragging everything else along. It replays the change as a new commit with a new id, and <code>-x</code> records the original id for traceability." },
+          { q: "What does the -x flag add?", a: "It appends \"(cherry picked from commit abc123)\" to the commit message. Without it you get a duplicate change with no trace of where it came from, which makes a later audit or <code>bisect</code> confusing." },
+          { q: "When is cherry-pick the wrong tool?", a: "When you find yourself using it routinely. Regular cherry-picking means the branching model is wrong, and it fills history with duplicate changes that make merges conflict. It is for the genuine exception." },
+          { q: "How do you apply the same fix to several release branches?", a: "Cherry-pick with <code>-x</code> onto each, or better, fix it on the oldest supported branch and merge that branch forward into the newer ones. Merging forward records the relationship, so the change is not duplicated." }
+        ],
+        [
+          { q: "You cherry-pick a commit that depends on an earlier one.", a: "It conflicts or compiles but fails at runtime, because the helper method it calls does not exist on that branch. Check what the commit depends on before picking it." },
+          { q: "You cherry-pick, then merge the same branch later.", a: "Git sees the change twice with different ids and may conflict with itself. <code>-x</code> at least leaves a trail explaining why." },
+          { q: "Cherry-picking becomes the weekly routine.", a: "That is a branching-strategy problem, not a Git problem. Fix on the oldest branch and merge forward instead." }
+        ]
+      ),
+      // 16. Remotes - fetch, pull, push
+      makeContent(
+        [
+          "<code>git fetch</code> downloads what is new on the server and updates <code>origin/main</code>, but <strong>changes nothing in your files</strong>. It is always safe to run.",
+          "<code>git pull</code> = <code>git fetch</code> + <code>git merge</code> (or <code>rebase</code> with <code>--rebase</code>). It <em>does</em> change your files.",
+          "<code>git push</code> sends your commits to the server. Until then your work exists only on your laptop.",
+          "<strong>Scenario:</strong> before starting work, run <code>git fetch</code> then <code>git log HEAD..origin/main --oneline</code> to see exactly what is waiting for you.",
+          "<code>origin/main</code> is not a branch you work on - it is a bookmark showing where the server was at your last fetch.",
+          "<code>git pull --rebase</code> puts your commits on top of the new ones, keeping history in a straight line instead of adding a merge commit each time.",
+          "<code>git pull --ff-only</code> refuses to do anything unless it can fast-forward, so you never get a surprise merge commit. Many teams set this as the default.",
+          "<code>git remote -v</code> lists your remotes; <code>origin</code> is what you cloned from and <code>upstream</code> is the usual name for the original project when you work from a fork."
+        ],
+        `# See what is new WITHOUT touching your files\ngit fetch origin\ngit log HEAD..origin/main --oneline      # what is waiting to come in\ngit diff HEAD origin/main --stat         # which files it touches\n\n# Now bring it in\ngit pull                 # fetch + merge\ngit pull --rebase        # fetch + replay my commits on top (linear)\ngit pull --ff-only       # refuse unless it is a clean fast-forward\n\n# Send my work\ngit push\ngit push -u origin feature/ABC-123       # first push of a new branch\n#   -u remembers the link, so later "git push" is enough\n\n# Remotes\ngit remote -v\ngit remote add upstream https://github.com/company/framework.git\ngit remote remove old-origin\n\n# Working from a fork: keep it fresh\ngit fetch upstream\ngit switch main\ngit merge upstream/main       # or: git rebase upstream/main\ngit push origin main\n\n# Am I ahead or behind?\ngit status\n#   Your branch is behind 'origin/main' by 3 commits, and can be fast-forwarded.`,
+        [
+          { q: "What is the difference between git fetch and git pull?", a: "<code>fetch</code> downloads the remote's commits and updates <code>origin/main</code>, but does not touch your working files - so it is always safe. <code>pull</code> is <code>fetch</code> plus <code>merge</code> (or <code>rebase</code> with <code>--rebase</code>), so it does change your branch." },
+          { q: "Why would you fetch before pulling?", a: "To see what is coming before it lands. <code>git log HEAD..origin/main</code> lists the incoming commits and <code>git diff HEAD origin/main</code> shows the files, which matters when you have work in progress on disk." },
+          { q: "What is the difference between git pull --rebase and --ff-only?", a: "<code>--rebase</code> replays your local commits on top of the fetched ones, giving linear history. <code>--ff-only</code> refuses unless the update is a clean fast-forward, so it never creates a surprise merge commit and forces you to decide explicitly." },
+          { q: "What are origin and upstream?", a: "Both are just names for remote URLs. <code>origin</code> is conventionally the repository you cloned from - your fork, if you have one - and <code>upstream</code> is the original project, which you fetch from to keep your fork current." }
+        ],
+        [
+          { q: "You <code>git pull</code> with uncommitted changes and get a mess.", a: "Pull merges into your working folder, so it can conflict with edits on disk. Commit or stash first, or use <code>git fetch</code> to look before you leap." },
+          { q: "You expect <code>git fetch</code> to update your files.", a: "It does not. It only updates <code>origin/*</code>. You still need <code>merge</code>, <code>rebase</code> or <code>pull</code> to move your branch." },
+          { q: "Every pull adds a \"Merge branch 'main' of ...\" commit.", a: "That is a plain pull on a busy branch. Set <code>git config --global pull.rebase true</code> or <code>pull.ff only</code> to keep history clean." }
+        ]
+      ),
+      // 17. Tracking branches, push rejections & force push
+      makeContent(
+        [
+          "A <strong>tracking branch</strong> is a local branch linked to a remote one, so Git knows what to compare against and <code>push</code>/<code>pull</code> need no arguments.",
+          "<code>git push -u origin feature/ABC-123</code> creates that link the first time. <code>-u</code> means \"remember this\".",
+          "<code>git branch -vv</code> shows what each local branch tracks and whether you are ahead or behind.",
+          "<strong>\"Updates were rejected because the remote contains work you do not have\"</strong> means someone pushed while you were working. Nothing is broken.",
+          "The fix is to bring their work in first: <code>git pull --rebase</code>, run the tests, then push again. <strong>Never</strong> solve it with a plain <code>--force</code>.",
+          "A force push is only needed after you rewrite your own history - a rebase, a squash or an amend on an already-pushed branch.",
+          "Use <code>--force-with-lease</code>: it checks the server is still where you last saw it and refuses if a teammate pushed meanwhile. Plain <code>--force</code> deletes their commit silently.",
+          "<strong>Before forcing, ask three things:</strong> is this branch mine alone, has anyone based work on it, and am I using <code>--force-with-lease</code>?"
+        ],
+        `# First push of a new branch - create the link\ngit push -u origin feature/ABC-123\n#   Branch 'feature/ABC-123' set up to track 'origin/feature/ABC-123'\n\n# What is each branch tracking?\ngit branch -vv\n#   * feature/ABC-123 9a8b7c6 [origin/feature/ABC-123: ahead 2] add cart tests\n#     main           f4e5d6c [origin/main]                     merge PR #42\n\n# Push rejected\ngit push\n#   ! [rejected]        main -> main (non-fast-forward)\n#   hint: Updates were rejected because the remote contains work that you do\n#         not have locally.\n\n# The correct fix\ngit pull --rebase        # replay my commits on top of theirs\nnpx playwright test      # make sure the combination still passes\ngit push\n\n# Force is only for history you rewrote yourself\ngit rebase -i HEAD~3\ngit push --force-with-lease      # safe: aborts if someone else pushed\n# git push --force               # dangerous: overwrites their work\n\n# Set the upstream later, without pushing\ngit branch --set-upstream-to=origin/feature/ABC-123`,
+        [
+          { q: "What is a tracking branch?", a: "A local branch linked to a remote branch, so Git knows what to compare against. <code>origin/main</code> itself is not a branch you work on - it is a read-only pointer recording where the remote was at your last fetch, which is why <code>git log main..origin/main</code> shows what is waiting to be pulled." },
+          { q: "Your push is rejected as non-fast-forward. What does it mean?", a: "The remote has commits you do not have, so pushing would discard them. Fetch and integrate first - <code>git pull --rebase</code> for linear history, or a merge on a shared branch - then push again. Never fix it with a plain force push." },
+          { q: "What is the difference between --force and --force-with-lease?", a: "<code>--force</code> overwrites the remote branch unconditionally. <code>--force-with-lease</code> first checks the remote is still at the commit you last saw, and refuses if someone else pushed in the meantime - so a teammate's work cannot be silently deleted." },
+          { q: "What do you check before force-pushing?", a: "That the branch is yours alone, that nobody has based work or an open pull request on it, and that you are using <code>--force-with-lease</code>. If any of those is uncertain, do not force - revert or merge instead." }
+        ],
+        [
+          { q: "You solve a rejected push with <code>git push --force</code>.", a: "You just deleted whatever your teammate pushed. The rejection was Git protecting them. Pull first." },
+          { q: "You push a new branch without <code>-u</code>, then plain <code>git push</code> fails.", a: "There is no link yet, so Git does not know where to send it. Use <code>git push -u origin &lt;branch&gt;</code> once, or set it later with <code>--set-upstream-to</code>." },
+          { q: "Two people rebase the same shared branch.", a: "Each force push wipes the other's version. Shared branches should be merged, not rebased." }
+        ]
+      ),
+      // 18. Tags & releases
+      makeContent(
+        [
+          "A <strong>tag</strong> is a permanent name for one commit - usually a release, such as <code>v1.2.0</code>.",
+          "The difference from a branch is simple: a <strong>branch moves</strong> as you commit, a <strong>tag stays put</strong> forever.",
+          "A <strong>lightweight tag</strong> is just a name pointing at a commit. An <strong>annotated tag</strong> (<code>-a</code>) also stores who tagged it, when and why - and can be signed.",
+          "<strong>Use annotated tags for releases.</strong> Lightweight ones are fine as a private bookmark.",
+          "<strong>Tags are not pushed by default.</strong> <code>git push origin v1.2.0</code> pushes one, <code>--tags</code> pushes all - forgetting this is a classic mistake.",
+          "<strong>Semantic versioning:</strong> MAJOR.MINOR.PATCH - major for breaking changes, minor for new features, patch for fixes.",
+          "<strong>Scenario for QA:</strong> tag your test repo when a release is signed off, so six months later you can check out exactly the suite that validated <code>v1.2.0</code>.",
+          "Checking out a tag puts you in <strong>detached HEAD</strong>, because a tag is not a branch. To work from it, branch from it: <code>git switch -c hotfix v1.2.0</code>."
+        ],
+        `# Create tags\ngit tag v1.2.0                                  # lightweight - just a name\ngit tag -a v1.2.0 -m "Release 1.2.0 - checkout suite signed off"\ngit tag -a v1.1.0 a1b2c3d -m "Tag an older commit"\n\n# List and inspect\ngit tag\ngit tag -l "v1.2.*"\ngit show v1.2.0            # tagger, date, message and the commit\n\n# Tags do NOT go with a normal push\ngit push origin v1.2.0     # one tag\ngit push origin --tags     # all tags\n\n# Delete\ngit tag -d v1.2.0                    # local\ngit push origin --delete v1.2.0      # on the server\n\n# Use a tag\ngit checkout v1.2.0\n#   You are in 'detached HEAD' state\ngit switch -c hotfix/1.2.1 v1.2.0    # branch from it to work\n\n# Which test commits came after the last release?\ngit log v1.2.0..main --oneline\n#   -> the draft release notes, and the list to regression test`,
+        [
+          { q: "What is the difference between a tag and a branch?", a: "A branch is a pointer that <strong>moves</strong> as you commit; a tag is a pointer that <strong>stays</strong>, marking one commit forever. Releases use tags because you must be able to return to exactly what shipped." },
+          { q: "Lightweight vs annotated tags?", a: "A lightweight tag is only a name pointing at a commit - fine as a private bookmark. An annotated tag is a real object storing the tagger, date and message, and it can be GPG-signed, which is why releases always use annotated tags." },
+          { q: "How do you push tags?", a: "They are not included in a normal push. Use <code>git push origin v1.2.0</code> for one or <code>git push origin --tags</code> for all. Forgetting this is why a release tag often exists only on the person's laptop." },
+          { q: "How do you version a test suite against application releases?", a: "Tag the test repository when a release is validated, so you can later check out exactly the suite that signed off <code>v1.2.0</code>. If the tests live in the same repository as the application, versioning solves itself." }
+        ],
+        [
+          { q: "You tag the release and nobody else can see it.", a: "Tags are not pushed with commits. Run <code>git push origin --tags</code>." },
+          { q: "You check out <code>v1.2.0</code>, fix a bug and commit.", a: "You were in detached HEAD, so the commit belongs to no branch and disappears when you switch away. Branch from the tag first." },
+          { q: "You move a tag that has already been released.", a: "Anyone who fetched it keeps the old one, so two people disagree about what <code>v1.2.0</code> means. Create <code>v1.2.1</code> instead of moving a tag." }
+        ]
+      ),
+      // 19. reflog & recovery
+      makeContent(
+        [
+          "<code>git reflog</code> is Git's safety net: a local diary of <strong>everywhere HEAD has been</strong> - every commit, switch, merge, rebase and reset.",
+          "Because of it, almost nothing that was ever <em>committed</em> is truly lost, even after a bad <code>reset --hard</code>.",
+          "<strong>Scenario:</strong> you ran <code>git reset --hard HEAD~3</code> and want the commits back. <code>git reflog</code>, find the id from before the reset, then <code>git reset --hard &lt;sha&gt;</code>.",
+          "<strong>Scenario:</strong> you deleted a branch with <code>-D</code> and now need it. Find its last commit in the reflog and run <code>git branch recovered &lt;sha&gt;</code>.",
+          "<code>ORIG_HEAD</code> is where you were just before the last big operation, so <code>git reset --hard ORIG_HEAD</code> is the quickest undo of a merge or rebase.",
+          "What the reflog <strong>cannot</strong> recover: changes that were never committed, and untracked files removed by <code>git clean</code>.",
+          "The reflog is <strong>local to your machine</strong> and entries expire (about 90 days for reachable, 30 for unreachable), so it is a safety net, not a backup.",
+          "First reaction to \"I lost my work\": <strong>do not panic, run <code>git reflog</code></strong>."
+        ],
+        `# Disaster\ngit reset --hard HEAD~3\n#   three commits of test work seem to be gone\n\n# The diary\ngit reflog\n#   9a8b7c6 HEAD@{0}: reset: moving to HEAD~3\n#   f4e5d6c HEAD@{1}: commit: test: add payment failure case   <- want this\n#   d3c2b1a HEAD@{2}: commit: test: add payment happy path\n#   a1b2c3d HEAD@{3}: checkout: moving from main to feature/pay\n\n# Get it back\ngit reset --hard f4e5d6c\n# or, safer, put it on a new branch first\ngit branch rescue f4e5d6c\n\n# Deleted a branch by mistake\ngit branch -D feature/payment-tests\ngit reflog | grep "payment"\ngit branch feature/payment-tests f4e5d6c\n\n# Undo the merge or rebase you just did\ngit reset --hard ORIG_HEAD\n\n# Reflog for one branch only\ngit reflog show feature/payment-tests\n\n# What it CANNOT save:\n#   edits you never committed\n#   untracked files deleted by git clean`,
+        [
+          { q: "You lost commits after git reset --hard. Can you get them back?", a: "Usually yes. <code>git reflog</code> records everywhere HEAD has been, including resets and rebases. Find the commit id from before the reset and run <code>git reset --hard &lt;sha&gt;</code>, or safer, <code>git branch rescue &lt;sha&gt;</code>. Only never-committed changes are truly gone." },
+          { q: "How do you recover a branch you deleted by mistake?", a: "Find its last commit in <code>git reflog</code> and recreate the branch there with <code>git branch recovered &lt;sha&gt;</code>. The commits survive until garbage collection, typically about thirty days, so the window is generous - but the reflog is local only." },
+          { q: "What is the difference between HEAD, ORIG_HEAD and FETCH_HEAD?", a: "<code>HEAD</code> is where you are now. <code>ORIG_HEAD</code> is where you were before the last big operation - a merge, rebase or reset - which makes <code>git reset --hard ORIG_HEAD</code> the quickest undo. <code>FETCH_HEAD</code> is what the last fetch brought down." },
+          { q: "What can the reflog not recover?", a: "Anything never committed: unstaged edits, and untracked files deleted by <code>git clean</code>. It is also local to your machine and expires, so it is a safety net rather than a backup." }
+        ],
+        [
+          { q: "You assume a hard reset is permanent and redo three hours of work.", a: "The commits were still in the reflog the whole time. Check <code>git reflog</code> before rewriting anything." },
+          { q: "You expect a teammate's reflog to help you.", a: "The reflog is per machine and per clone. If the commit never left their laptop, your reflog has never seen it." },
+          { q: "You wait a few months, then look for a deleted branch.", a: "Unreachable commits are cleaned up after roughly thirty days. Recover soon, or push a rescue branch so it lives on the server." }
+        ]
+      ),
+      // 20. Finding the bad commit - blame & bisect
+      makeContent(
+        [
+          "A test that used to pass now fails. Git can find the exact commit that broke it, instead of you guessing.",
+          "<strong>Start narrow.</strong> <code>git log --oneline -- tests/checkout.spec.ts</code> shows that file's history; often the culprit is obvious.",
+          "<code>git blame -L 40,60 pages/CheckoutPage.ts</code> tells you which commit last touched those lines, then <code>git show &lt;sha&gt;</code> explains why.",
+          "When the range is hundreds of commits, use <strong><code>git bisect</code></strong>: a binary search through history.",
+          "You mark one commit <strong>bad</strong> (broken now) and one <strong>good</strong> (working before). Git checks out the middle one and asks which it is, halving the range each time.",
+          "<strong>500 commits become about 9 checks</strong>, because each answer removes half the remaining history.",
+          "<code>git bisect run npx playwright test tests/checkout.spec.ts</code> automates it completely - Git uses the exit code to judge each commit and hands you the culprit.",
+          "Always finish with <code>git bisect reset</code> to return to the branch you started on."
+        ],
+        `# 1. Narrow it down first - often enough on its own\ngit log --oneline -- tests/checkout.spec.ts\ngit blame -L 40,60 -w pages/CheckoutPage.ts\ngit show a1b2c3d\n\n# 2. Still unclear? Binary search the history\ngit bisect start\ngit bisect bad                    # current commit is broken\ngit bisect good v1.1.0            # this old tag was fine\n\n#   Bisecting: 124 revisions left to test after this (roughly 7 steps)\n\nnpx playwright test tests/checkout.spec.ts\ngit bisect good        # it passed here\n# ... Git checks out the next middle commit ...\ngit bisect bad         # it failed here\n\n#   f4e5d6c is the first bad commit\n#   fix(cart): change pay button id\n\ngit bisect reset       # back to where you started\n\n# 3. Or let Git do the whole thing\ngit bisect start HEAD v1.1.0\ngit bisect run npx playwright test tests/checkout.spec.ts\n#   exit code 0 = good, non-zero = bad\n#   -> ~9 test runs instead of 500`,
+        [
+          { q: "How do you find the commit that broke a test?", a: "Start narrow: <code>git log --oneline -- path/to/file</code> for that file's history, <code>git blame -L 40,60 file</code> for the exact lines, then <code>git show &lt;sha&gt;</code> to read the change. If the range is large, <code>git bisect</code> binary-searches it." },
+          { q: "What is git bisect and how do you automate it?", a: "<code>git bisect start</code>, then mark a bad and a good commit; Git checks out the midpoint and you judge each one, halving the range every step. <code>git bisect run npx playwright test tests/checkout.spec.ts</code> automates it using the command's exit code - about nine runs across five hundred commits." },
+          { q: "How do you find who changed a line and why?", a: "<code>git blame -L 40,60 file</code> gives the commit for each line, then <code>git show &lt;sha&gt;</code> shows the full change and its message. Add <code>-w</code> to ignore whitespace and <code>-C</code> to follow code moved from another file." },
+          { q: "How do you find when a file was deleted?", a: "<code>git log --diff-filter=D -- path/to/file</code> lists the commits that deleted it even though the path no longer exists, and <code>git checkout &lt;sha&gt;^ -- path/to/file</code> restores it from the commit before the deletion." }
+        ],
+        [
+          { q: "Bisect points at a commit that only reformatted code.", a: "Your good/bad marks were wrong, or the test is flaky and gave a false result. Run the test twice per step, or use <code>git bisect skip</code> for commits that cannot be built." },
+          { q: "You forget <code>git bisect reset</code>.", a: "You are left in detached HEAD on some old commit, and new work there belongs to no branch. Always reset when finished." },
+          { q: "You bisect a flaky test.", a: "Binary search assumes a reliable answer. Fix or quarantine the flakiness first, or bisect on a more stable assertion." }
+        ]
+      ),
+      // 21. Internals
+      makeContent(
+        [
+          "Under the hood Git stores only four kinds of object, and knowing them makes the rest of Git obvious.",
+          "<strong>Blob</strong> - the contents of a file. <strong>Tree</strong> - a folder listing, pointing at blobs and other trees.",
+          "<strong>Commit</strong> - points at one tree (the whole project at that moment), plus its parent commit, author, date and message.",
+          "<strong>Tag</strong> (annotated) - points at a commit and stores who tagged it and why.",
+          "Every object is named by a <strong>SHA hash</strong> of its content, like <code>a1b2c3d...</code>. Same content, same id - so identical files are stored once.",
+          "That is why a commit id changes when you amend or rebase: the content changed, so the name changes.",
+          "A <strong>branch</strong> is a file in <code>.git/refs/heads</code> containing one commit id. <code>HEAD</code> is a file saying which branch you are on.",
+          "A commit is a <strong>snapshot</strong>, not a set of differences. Git shows you diffs, but it stores full versions - which is why checking out an old commit is fast."
+        ],
+        `# Look at the machinery\ngit cat-file -t a1b2c3d          # what type is it?  -> commit\ngit cat-file -p a1b2c3d          # print it\n#   tree   9f2b7c1...\n#   parent d4e5f6a...\n#   author Hussain Syed <...> 1735632000 +0530\n#\n#   test: add cart validation\n\n# The tree is the folder listing\ngit cat-file -p 9f2b7c1\n#   100644 blob 3b18e51...    playwright.config.ts\n#   040000 tree 7d8e9f0...    tests\n\n# The blob is the file content\ngit cat-file -p 3b18e51 | head -5\n\n# A branch really is just a file with one id in it\ncat .git/refs/heads/main\n#   f4e5d6c8a9b0...\ncat .git/HEAD\n#   ref: refs/heads/main\n\n# Short ids and useful shorthands\ngit rev-parse HEAD               # full id of the current commit\ngit rev-parse --short HEAD\ngit show HEAD~1                  # one commit before\ngit show HEAD~3                  # three before\ngit show HEAD^2                  # second parent of a merge`,
+        [
+          { q: "What are the four object types in Git?", a: "A <strong>blob</strong> holds file contents, a <strong>tree</strong> holds a folder listing pointing at blobs and other trees, a <strong>commit</strong> points at one tree plus its parents and metadata, and an annotated <strong>tag</strong> points at a commit. Everything is named by the hash of its content, so identical content is stored once." },
+          { q: "Does Git store changes or snapshots?", a: "Snapshots. Each commit points at a complete tree of the project at that moment; unchanged files simply reuse the same blob. Diffs are calculated when you ask for them - which is why checking out any commit is fast." },
+          { q: "Why does the commit id change when you amend or rebase?", a: "Because the id is a hash of the commit's content, including its message, parent and timestamp. Change any of those and it is a different object with a different id - which is exactly why rewritten history diverges from what others already pulled." },
+          { q: "What is HEAD really?", a: "A file in <code>.git</code> containing a reference to the branch you are on, such as <code>ref: refs/heads/main</code>. In detached HEAD it contains a commit id directly instead - which is why commits made there are not attached to any branch." }
+        ],
+        [
+          { q: "You expect two clones to have the same commit ids after a rebase.", a: "Rebasing creates new objects with new ids, so the histories no longer match. That is the whole reason for the rule about not rebasing shared branches." },
+          { q: "You delete objects from <code>.git</code> by hand to free space.", a: "You corrupt the repository. Use <code>git gc</code>, or remove large files properly with <code>git filter-repo</code>." },
+          { q: "You assume a short id is always unique.", a: "Seven characters are enough in a small repo, but big repositories can collide. Scripts should use the full id from <code>git rev-parse HEAD</code>." }
+        ]
+      ),
+      // 22. Hooks
+      makeContent(
+        [
+          "A <strong>hook</strong> is a script Git runs automatically at a certain moment - before a commit, on the commit message, before a push.",
+          "<code>pre-commit</code> runs before the commit is created. If it exits non-zero, the commit is blocked.",
+          "<code>commit-msg</code> checks the message - for example, requiring a ticket id like <code>ABC-123</code>.",
+          "<code>pre-push</code> runs before a push, so it can run the checks that would otherwise fail CI three minutes later.",
+          "<strong>Scenario:</strong> a <code>pre-commit</code> hook running ESLint, Prettier and <code>tsc --noEmit</code> stops broken TypeScript from ever reaching the pipeline.",
+          "Keep <code>pre-commit</code> <strong>fast</strong>. If it takes thirty seconds, people start using <code>--no-verify</code> and the hook is worthless.",
+          "Native hooks live in <code>.git/hooks</code> and are <strong>not committed</strong>, so they cannot be shared - every new joiner would have none.",
+          "That is why JavaScript projects use <strong>Husky</strong> (with lint-staged, so only staged files are checked); Java projects usually use a Maven plugin or CI checks instead."
+        ],
+        `# The raw hooks folder - not committed, so not shared\nls .git/hooks\n#   pre-commit.sample  commit-msg.sample  pre-push.sample ...\n\n# file: .git/hooks/pre-commit   (must be executable)\n#!/bin/sh\nnpx lint-staged || exit 1\nnpx tsc --noEmit || exit 1\n\n# file: .git/hooks/commit-msg\n#!/bin/sh\ngrep -qE "^(feat|fix|test|chore)\\(?.*\\)?: .+" "$1" || {\n  echo "Message must start with feat: fix: test: or chore:"\n  exit 1\n}\n\n# Skip hooks in an emergency (and only then)\ngit commit --no-verify -m "hotfix: restore pipeline"\n\n# ---- Sharing hooks with the team: Husky ----\nnpm install --save-dev husky lint-staged\nnpx husky init\n\n# file: .husky/pre-commit\nnpx lint-staged\n\n# file: package.json\n#   "lint-staged": {\n#     "*.ts": ["eslint --fix", "prettier --write"]\n#   }\n\n# file: .husky/pre-push\nnpx tsc --noEmit && npx playwright test --grep @smoke`,
+        [
+          { q: "What are Git hooks and where would you use them?", a: "Scripts Git runs at lifecycle points - <code>pre-commit</code>, <code>commit-msg</code>, <code>pre-push</code>. On a test repository a pre-commit hook running ESLint, Prettier and <code>tsc --noEmit</code> stops broken TypeScript reaching CI, and commit-msg can enforce a ticket id in the message." },
+          { q: "How do you share hooks across a team?", a: "Native hooks live in <code>.git/hooks</code> and are not versioned, so they cannot be shared directly. Use Husky, which stores them in the repository and installs them on <code>npm install</code>, with lint-staged so only staged files are checked." },
+          { q: "What would you use a pre-push hook for?", a: "The fast checks that would otherwise fail CI a few minutes later - lint, type-check and a small smoke suite. <code>pre-commit</code> must stay very quick or people bypass it; <code>pre-push</code> can afford more because it runs less often." },
+          { q: "Can hooks be bypassed?", a: "Yes - <code>git commit --no-verify</code> skips them, and they run only on the developer's machine. That is why hooks are a convenience, and the real gate is a CI check on the pull request." }
+        ],
+        [
+          { q: "Your pre-commit hook runs the full suite.", a: "Committing takes minutes, so the team starts using <code>--no-verify</code> permanently. Keep pre-commit to lint and type-check; put tests in pre-push or CI." },
+          { q: "You rely on a hook to stop secrets being committed.", a: "Hooks are local and skippable. Add server-side push protection or a CI scan as well." },
+          { q: "A new joiner has no hooks at all.", a: "<code>.git/hooks</code> is never cloned. Only a committed setup like Husky gives everyone the same checks." }
+        ]
+      ),
+      // 23. Branching strategy & pull requests
+      makeContent(
+        [
+          "A <strong>branching strategy</strong> is the team's agreement about where work happens and how it reaches <code>main</code>.",
+          "The common answer for a test repository: <strong>short-lived feature branches off main, one per ticket, merged through a pull request</strong>.",
+          "Branch names carry the ticket: <code>feature/ABC-123-login-tests</code>, <code>bugfix/ABC-456-flaky-checkout</code>, <code>hotfix/ABC-999-payment</code>.",
+          "<strong>Protected main:</strong> no direct pushes, at least one approval, and the CI checks must pass. For a test repo the important one is that the smoke suite is green before merge.",
+          "A <strong>pull request</strong> is where review happens: the diff, the comments, the CI result and the approval.",
+          "Three ways to land a PR: <strong>merge</strong> keeps every commit, <strong>squash</strong> makes one clean commit per ticket (most common), <strong>rebase and merge</strong> keeps commits but rewrites ids. Pick one and stay consistent.",
+          "<strong>GitFlow</strong> - with develop, release and hotfix branches - only earns its complexity when you ship versioned releases. Most test repos do not need it.",
+          "<strong>Scenario:</strong> a branch that lives a month drifts from the app, so the tests pass on the branch and fail on main. Merge from main daily and keep branches to days."
+        ],
+        `# A ticket, start to finish\ngit switch main\ngit pull\ngit switch -c feature/ABC-123-login-tests\n\n# ... write tests/login.spec.ts and pages/LoginPage.ts ...\ngit add tests/login.spec.ts pages/LoginPage.ts\ngit commit -m "test(login): cover locked account and wrong password"\n\n# Keep up with main while you work (daily)\ngit fetch origin && git rebase origin/main\n\n# Share it\ngit push -u origin feature/ABC-123-login-tests\n# -> open the pull request in GitHub / GitLab / Azure DevOps\n\n# After review: squash and merge, then clean up\ngit switch main\ngit pull\ngit branch -d feature/ABC-123-login-tests\ngit fetch --prune                   # forget the deleted remote branch\n\n# Clean up every branch already merged into main\ngit branch --merged main | grep -v "main" | xargs git branch -d\n\n# Typical protected-main rules:\n#   no direct push        1+ approving review\n#   smoke suite green     no force push\n#   CODEOWNERS review for tests/ and playwright.config.ts`,
+        [
+          { q: "What branching strategy do you follow in your project?", a: "Short-lived feature branches per ticket, named after the ticket, with a pull request, CI running at least the smoke suite before merge, one review, and a protected <code>main</code> nobody pushes to directly. Branches live days, not weeks." },
+          { q: "Merge, squash or rebase when landing a pull request?", a: "<strong>Merge</strong> keeps every commit and records where integration happened. <strong>Squash</strong> gives one clean commit per ticket on main while the branch keeps its detail - the most common default. <strong>Rebase and merge</strong> gives linear history with individual commits but rewrites ids. Pick one per repository." },
+          { q: "What is a protected branch and what does it enforce?", a: "Rules the host applies to a branch: no direct pushes, at least one approving review, required status checks passing, and no force push. For a test repository the status check is the one that matters - the suite must pass before merge." },
+          { q: "How long should a feature branch live?", a: "Days, not weeks. A long branch accumulates conflicts nobody reviews honestly, and in a test repository it drifts away from the application it validates, so the tests pass on the branch and fail on main." }
+        ],
+        [
+          { q: "Someone pushes straight to <code>main</code>.", a: "The change skipped review and CI. Turn on branch protection - the rule, not the reminder, is what stops it." },
+          { q: "A pull request with a 2,000-line diff.", a: "It gets approved, not reviewed. Push back on size, or review commit by commit and actually check the branch out and run it." },
+          { q: "Your team squash-merges but keeps merging the old branch.", a: "Squash leaves no merge link, so the same commits come back and conflict. Delete the branch after every squash merge." }
+        ]
+      ),
+      // 24. Git for a test automation project
+      makeContent(
+        [
+          "Everything above comes together in the repository your framework lives in - here is the practical checklist.",
+          "<strong>Commit only source.</strong> Tests, page objects, config, test data, CI files. Never reports, screenshots, videos, traces or <code>node_modules/</code>.",
+          "<strong>Never commit secrets.</strong> Keep credentials in CI environment variables or a vault; commit <code>.env.example</code> with fake values. If a secret does get in, <strong>rotate it</strong> - deleting the commit is not enough, because it is already cloned.",
+          "<strong>Where should tests live?</strong> With the application if possible - the test and the code it covers version together and land in one pull request. A separate repo is justified for cross-service end-to-end suites, and then needs deliberate version pinning.",
+          "<strong>CI on every push:</strong> lint, type-check and the smoke suite on a pull request; the full regression nightly. That is what makes branch protection meaningful.",
+          "<strong>Tag what you sign off</strong>, so you can check out the exact suite that validated a release.",
+          "<strong>Scenario - reviewing test code:</strong> look for assertions that can never fail, hard-coded waits, brittle XPath, credentials or environment URLs in the code, tests that depend on data another test created, and missing cleanup.",
+          "<strong>Scenario - artifacts already committed:</strong> add the paths to <code>.gitignore</code>, run <code>git rm --cached -r</code> on them, and commit. Only rewrite history if the repository has become too big to clone."
+        ],
+        `# A healthy automation repo\n#   tests/            specs\n#   pages/            page objects\n#   fixtures/         test data\n#   playwright.config.ts\n#   .github/workflows/tests.yml\n#   .gitignore  .gitattributes  .env.example\n#   package.json  package-lock.json      <- lock file IS committed\n\n# Reports were committed by mistake - stop the bleeding\ngit rm --cached -r playwright-report test-results\necho "playwright-report/" >> .gitignore\necho "test-results/"      >> .gitignore\ngit commit -m "chore: stop tracking generated test reports"\n\n# A secret reached the repo\n#   1. rotate the credential immediately  <- always first\n#   2. remove it from the working tree and ignore the file\n#   3. only if truly necessary, rewrite history:\n#      git filter-repo --path .env --invert-paths\n#      (then everyone must re-clone)\n\n# CI: .github/workflows/tests.yml\n#   on: [pull_request]\n#   steps:\n#     - uses: actions/checkout@v4\n#     - run: npm ci\n#     - run: npx tsc --noEmit\n#     - run: npx playwright test --grep @smoke\n\n# Sign off a release\ngit tag -a v1.4.0 -m "Regression suite green for release 1.4.0"\ngit push origin v1.4.0\ngit log v1.3.0..v1.4.0 --oneline     # what changed since last release`,
+        [
+          { q: "Should test code live with the application or in its own repository?", a: "With the application wherever possible: the tests and the code they cover version together, a breaking change and its test update land in one pull request, and CI has one thing to check out. A separate repository is justified for cross-service end-to-end suites, and then needs deliberate version pinning." },
+          { q: "How do you stop passwords and keys from being committed?", a: "Keep them out of the repo entirely - CI environment variables or a vault - and commit a <code>.env.example</code> with dummy values. Add a secret-scanning pre-commit hook and server-side push protection. If one does get committed, rotate it, because it is already in every clone." },
+          { q: "Reports and screenshots were committed. How do you clean it up?", a: "Add the paths to <code>.gitignore</code>, run <code>git rm --cached -r</code> on them and commit. Rewriting history with <code>filter-repo</code> is only worth the disruption if the repository has genuinely become too large to clone." },
+          { q: "What do you look for when reviewing test code?", a: "Assertions that could never fail, hard-coded waits, absolute XPath or brittle locators, credentials or environment URLs in the code, tests that depend on data another test creates, missing cleanup, and a test name that does not describe what it proves." }
+        ],
+        [
+          { q: "The <code>package-lock.json</code> is in <code>.gitignore</code>.", a: "Then CI installs different versions from your laptop and \"works on my machine\" begins. Lock files are source - commit them." },
+          { q: "A test writes results into the repo folder and they get committed.", a: "Every run then produces a huge diff and constant conflicts. Point the reporter at an ignored folder such as <code>test-results/</code>." },
+          { q: "You delete the commit that contained a leaked API key and call it fixed.", a: "The key is in every clone and in the host's cache. Rotate it first - history rewriting is cleanup, not the fix." }
+        ]
+      )
+    ];
+
     const pythonContentList = [
       // 1. Introduction to Python & Its Features
       makeContent(
@@ -10142,6 +10786,11 @@ const deepevalTopicTitles = [
     // Checked first, because a workflow otherwise looks Python-ish: it has
     // hash comments and lines such as "with:" that end in a colon.
     const YAML_HEAD = /^[ \t]*#[ \t]*\.github\/workflows\//;
+    const SHELL_GIT = /^[ \t]*git[ \t]+[a-z][a-z-]*/m;
+    function looksShell(code) {
+      return SHELL_GIT.test(code);
+    }
+
     function looksWorkflow(code) {
       return YAML_HEAD.test(code);
     }
@@ -10178,7 +10827,9 @@ const deepevalTopicTitles = [
       const text = String(source || "");
       const isPython = lang ? lang === "python" : looksPython(text);
       // Workflow YAML shares Python's comment marker and nothing else.
-      const hashComment = isPython || looksWorkflow(text);
+      // Git/shell samples use # comments too, and a line that starts with a
+      // git command is the one signal no JS, Java or Groovy sample produces.
+      const hashComment = isPython || looksWorkflow(text) || looksShell(text);
       const keywords = isPython ? PY_KEYWORDS : CODE_KEYWORDS;
       const literals = isPython ? PY_LITERALS : CODE_LITERALS;
       let out = "";
@@ -13158,11 +13809,13 @@ const deepevalTopicTitles = [
       const seleniumOffset = javaTopicTitles.length;
       const raOffset = seleniumOffset + seleniumTopicTitles.length;
       const sqlOffset = raOffset + raTopicTitles.length;
+      const gitOffset = sqlOffset + sqlTopicTitles.length;
 
       const javaTopics = buildTopics(javaTopicTitles, javaContentList, 0);
       const seleniumTopics = buildTopics(seleniumTopicTitles, seleniumContentList, seleniumOffset);
       const raTopics = buildTopics(raTopicTitles, raContentList, raOffset);
       const sqlTopics = buildTopics(sqlTopicTitles, sqlContentList, sqlOffset);
+      const gitTopics = buildTopics(gitTopicTitles, gitContentList, gitOffset);
 
       // The AI stack numbers from 01 like the others, and Python comes first
       // in it, so DeepEval starts where the Python modules leave off.
@@ -13173,7 +13826,7 @@ const deepevalTopicTitles = [
 
       const topics = [
         ...tsTopics, ...uiTopics, ...apiTopics,
-        ...javaTopics, ...seleniumTopics, ...raTopics, ...sqlTopics,
+        ...javaTopics, ...seleniumTopics, ...raTopics, ...sqlTopics, ...gitTopics,
         ...pythonTopics, ...deepevalTopics
       ];
 
@@ -13228,6 +13881,13 @@ const deepevalTopicTitles = [
           topics: sqlTopics
         },
         {
+          id: "git",
+          tag: "GIT",
+          name: "Git & Version Control",
+          blurb: "The tool your framework lives in - commits, branches, merges and conflicts explained simply, then rebase, stash, reflog and the pull request workflow a team actually uses.",
+          topics: gitTopics
+        },
+        {
           id: "python",
           tag: "PY",
           name: "Python Foundations",
@@ -13261,8 +13921,8 @@ const deepevalTopicTitles = [
           id: "selenium",
           tag: "SE",
           name: "Selenium + Java Automation",
-          blurb: "The enterprise stack: Core Java foundations, Selenium WebDriver with TestNG and Cucumber, then Rest Assured and SQL for the data layer.",
-          subjectIds: ["java", "selenium", "restassured", "sql"]
+          blurb: "The enterprise stack: Core Java foundations, Selenium WebDriver with TestNG and Cucumber, then Rest Assured and SQL for the data layer, plus Git for version control.",
+          subjectIds: ["java", "selenium", "restassured", "sql", "git"]
         },
         {
           id: "ai",
@@ -14403,11 +15063,11 @@ const deepevalTopicTitles = [
         tags: ["Rebase", "Reset/Revert", "Conflicts", "Branching"],
         questions: [
           {
-            q: "Merge vs rebase - when do you use each?",
+            q: "What is the difference between merge and rebase?",
             a: "Merge keeps both histories and adds a merge commit; it is safe and honest for shared branches. Rebase replays your commits on top of the target for a linear history but rewrites commit ids - so never rebase a branch other people have already pulled."
           },
           {
-            q: "git fetch vs git pull?",
+            q: "What is the difference between git fetch and git pull?",
             a: "<code>fetch</code> downloads the remote's commits and updates the tracking refs such as <code>origin/main</code>, but touches nothing in your working tree or your local branch - so it is always safe to run. <code>pull</code> is <code>fetch</code> followed by <code>merge</code>, or by <code>rebase</code> when you pass <code>--rebase</code>. Fetch first when you want to see what is coming (<code>git log HEAD..origin/main</code>) before integrating it, especially with work in progress on disk. On a feature branch <code>git pull --rebase</code> keeps history linear instead of adding a merge commit every time you sync with main."
           },
           {
@@ -14415,27 +15075,27 @@ const deepevalTopicTitles = [
             a: "<code>git status</code> lists the conflicted files; edit the <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> / <code>=======</code> / <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> blocks down to the intended result, <code>git add</code> each resolved file, then <code>git commit</code> or <code>git rebase --continue</code>. <code>git merge --abort</code> backs out completely. Re-run the affected tests before pushing."
           },
           {
-            q: "Explain reset --soft, --mixed and --hard, and how revert differs.",
+            q: "What is the difference between git reset and git revert?",
             a: "<code>--soft</code> moves the branch pointer and keeps your changes staged, <code>--mixed</code> (the default) unstages them, <code>--hard</code> discards them. <code>git revert</code> creates a new commit that undoes an old one, which makes it the only safe undo for commits already pushed to a shared branch."
           },
           {
-            q: "When would you use cherry-pick?",
+            q: "What is git cherry-pick and when would you use it?",
             a: "To copy one specific commit onto another branch - classically a hotfix that must land on both <code>release</code> and <code>main</code> without dragging everything else along with it. <code>git cherry-pick &lt;sha&gt;</code> replays that change as a brand-new commit with a new id, and <code>-x</code> records the original sha in the message, which is worth doing for traceability. Conflicts are resolved exactly like a merge and continued with <code>--continue</code>. Used sparingly it is invaluable; used routinely it fills history with duplicate changes nobody can trace."
           },
           {
-            q: "How does git stash work and when do you reach for it?",
+            q: "What is git stash and when do you use it?",
             a: "<code>git stash push -m \"wip\"</code> parks uncommitted changes and leaves you a clean tree, so you can switch branches or pull. <code>git stash list</code> shows the stack, <code>git stash pop</code> applies the top entry and removes it, and <code>git stash apply</code> keeps it in the list. Add <code>-u</code> to include untracked files - forgetting that flag is exactly why a brand-new spec file seems to disappear after a pop. Stashes are local, unnamed by default and easy to forget, so for anything you actually care about a throwaway WIP commit on a branch is the safer habit."
           },
           {
-            q: "What branching strategy do you use for an automation repo?",
+            q: "What branching strategy do you follow in your project?",
             a: "Short-lived feature branches per ticket - <code>feature/ABC-123-login-tests</code> - with a pull request, CI running at least the smoke suite before merge, one review, and a protected <code>main</code> that nobody pushes to directly. Branches should live days, not weeks: a long-lived automation branch drifts away from the application it is meant to test and becomes a merge nobody reviews honestly. Full GitFlow with develop and release branches only earns its overhead when you genuinely ship versioned releases; for a test repo, trunk-based is usually the right answer."
           },
           {
-            q: "You committed node_modules or a secret file - how do you fix it?",
+            q: "You committed node_modules or a password file by mistake. How do you fix it?",
             a: "Add it to <code>.gitignore</code>, then <code>git rm --cached &lt;file&gt;</code> and commit - <code>.gitignore</code> alone does not untrack a file that is already tracked. If it was a real secret, rotate it immediately; scrubbing it from history needs git-filter-repo or BFG plus a force push."
           },
           {
-            q: "How do you squash commits before merging?",
+            q: "How do you squash several commits into one?",
             a: "<code>git rebase -i HEAD~n</code> opens the todo list: mark a commit <code>squash</code> to fold it into the one above and keep both messages, or <code>fixup</code> to fold it in and throw the message away. Most teams instead use the Squash and merge button on the pull request, which keeps <code>main</code> at one meaningful commit per ticket while the branch keeps its detailed history. Squash your own unpushed work freely - never squash a shared branch, because it rewrites history other people have already pulled."
           },
           {
@@ -14443,47 +15103,47 @@ const deepevalTopicTitles = [
             a: "Start narrow: <code>git log --oneline -- path/to/file</code> for that file's history, <code>git blame -L 40,60 file</code> for the exact lines, then <code>git show &lt;sha&gt;</code> to read the change. When the origin is unclear across hundreds of commits, <code>git bisect start</code>, <code>git bisect bad</code> on the broken commit and <code>git bisect good &lt;old-sha&gt;</code> binary-searches the range in log2(n) steps. Best of all, because the check is just a command, you can automate it entirely: <code>git bisect run npx playwright test tests/checkout.spec.ts</code> and let Git hand you the culprit commit."
           },
           {
-            q: "What is HEAD, and what is a detached HEAD?",
+            q: "What is HEAD in Git, and what is a detached HEAD?",
             a: "<code>HEAD</code> points at your current branch and therefore the checked-out commit. Checking out a commit or tag directly detaches it - commits made there belong to no branch and are effectively lost once you switch away, unless you create a branch first."
           },
           {
-            q: "You reset --hard and lost work. Can you recover it?",
+            q: "You lost commits after a git reset --hard. Can you get them back?",
             a: "Usually yes, through <code>git reflog</code>, which records everywhere HEAD has been including resets and rebases. Find the old sha and run <code>git reset --hard &lt;sha&gt;</code> or <code>git branch rescue &lt;sha&gt;</code>. Unstaged, never-committed changes are the ones that are genuinely gone."
           },
           {
-            q: "Lightweight vs annotated tags?",
+            q: "What is the difference between a lightweight tag and an annotated tag?",
             a: "A lightweight tag is nothing more than a named pointer at a commit - fine as a private bookmark. An annotated tag (<code>git tag -a v1.2.0 -m \"release\"</code>) is a real object in the database carrying the tagger, date and message, and it can be GPG-signed, which is why releases always use annotated tags. Tags are not pushed with a normal push: use <code>git push origin v1.2.0</code> for one or <code>--tags</code> for all. In a test repository they are useful for pinning exactly which version of the suite validated a given release."
           },
           {
-            q: "What are the three areas of Git and how does a change move through them?",
+            q: "What are the working directory, the staging area and the repository?",
             a: "The <b>working directory</b> is your files on disk, the <b>staging area (index)</b> is what you have marked for the next commit, and the <b>repository</b> is the committed history inside <code>.git</code>. <code>git add</code> moves changes from the working directory into staging, <code>git commit</code> moves staging into the repository, and <code>git push</code> sends commits to the remote. <code>git status</code> tells you which area each file is sitting in - and the stash is effectively a fourth place work can hide."
           },
           {
-            q: "What are origin and upstream, and how do you add a remote?",
+            q: "What is a remote, and what do origin and upstream mean?",
             a: "A remote is just a named URL for another copy of the repository. <code>origin</code> is the conventional name for the one you cloned from, and <code>upstream</code> is the convention for the original project when you are working from a fork. <code>git remote -v</code> lists them, <code>git remote add upstream &lt;url&gt;</code> adds one, and you keep a fork current by fetching <code>upstream</code> and then merging or rebasing <code>upstream/main</code> into your branch."
           },
           {
-            q: "Which git diff commands do you actually use?",
+            q: "What is the difference between git diff, git diff --staged and git diff HEAD?",
             a: "<code>git diff</code> compares the working directory with the index - what you have <b>not</b> staged. <code>git diff --staged</code> compares the index with the last commit - what you are about to commit. <code>git diff HEAD</code> shows everything uncommitted, and <code>git diff main..feature</code> compares two branches. <code>--name-only</code> gives you just the file list, and <code>git diff --check</code> catches trailing whitespace before a reviewer has to."
           },
           {
-            q: "Fast-forward vs three-way merge?",
+            q: "What is the difference between a fast-forward merge and a three-way merge?",
             a: "If the target branch has gained no commits since you branched off, Git can simply slide its pointer forward onto your commits - a fast-forward, with no merge commit at all. If both branches moved, Git performs a three-way merge using the two branch tips plus their common ancestor and records a merge commit. Teams who want history to show where each feature was integrated force the merge commit with <code>--no-ff</code> even when a fast-forward would be possible."
           },
           {
-            q: "How do you rename and delete branches, locally and on the remote?",
+            q: "How do you rename or delete a branch, locally and on the remote?",
             a: "Rename the current branch with <code>git branch -m new-name</code>. Delete a merged local branch with <code>git branch -d old</code> - <code>-D</code> forces it when it is not merged, and the warning exists for a reason. Delete it on the remote with <code>git push origin --delete old</code>, then clear out stale tracking references with <code>git fetch --prune</code> so your branch list stops showing branches that no longer exist."
           },
           {
-            q: "When is git commit --amend safe?",
+            q: "What does git commit --amend do, and when is it safe to use?",
             a: "It rewrites the last commit, so it is safe only while that commit exists nowhere but your machine - fixing the message, adding a forgotten file, folding in a review nit before pushing. Once it has been pushed and someone else has pulled, amending diverges the history and forces a push that can destroy their work. If you must force after rebasing your own branch, use <code>--force-with-lease</code>, which refuses the push if someone else has pushed in the meantime."
           },
           {
-            q: "What are Git hooks and how would you use them on a test repo?",
+            q: "What are Git hooks and where would you use them?",
             a: "Hooks are scripts Git runs at lifecycle points - <code>pre-commit</code>, <code>commit-msg</code>, <code>pre-push</code>. On an automation repo a <code>pre-commit</code> hook running ESLint, Prettier and <code>tsc --noEmit</code> stops broken TypeScript ever reaching CI, and <code>commit-msg</code> can enforce a ticket id in the message. Native hooks live in <code>.git/hooks</code> and are not versioned, so teams use Husky with lint-staged to share hooks through the repository and only lint the staged files."
           },
           {
-            q: "You are on Windows and suddenly every file shows as modified. Why?",
+            q: "On Windows every file suddenly shows as modified. What causes it?",
             a: "Line endings. Windows checks out CRLF while Linux and CI use LF, so whole files look rewritten. The fix is a committed <code>.gitattributes</code> containing <code>* text=auto eol=lf</code>, which makes normalisation a property of the repository rather than of each developer's <code>core.autocrlf</code> setting. It matters for automation repos in particular, because a shell script or a snapshot file with the wrong endings breaks on the CI agent while working perfectly on your laptop."
           },
           {
@@ -14491,15 +15151,15 @@ const deepevalTopicTitles = [
             a: "Do not hand-edit it. Resolve <code>package.json</code> properly first, since that is the file expressing intent, then take one side of the lock - typically <code>git checkout --theirs package-lock.json</code> - and re-run <code>npm install</code> so the lock is regenerated from the merged dependencies, and commit that. Run the suite once before pushing, because a regenerated lock can pull slightly different transitive versions than either branch had."
           },
           {
-            q: "What makes a good commit, and what do you look for when reviewing a PR?",
+            q: "What makes a good commit message?",
             a: "A commit should be one logical change with an imperative message: a short summary line, a blank line, then why the change was needed and the ticket id. Conventional Commits (<code>feat:</code>, <code>fix:</code>, <code>test:</code>) additionally let tooling generate changelogs. Reviewing, I check: does it do what the ticket says, are the tests meaningful rather than asserting something trivially true, are the locators and waits stable, is anything secret or environment-specific hard-coded, and is the diff small enough that the review is actually honest."
           }
           ,{
-            q: "What does it mean that Git is distributed?",
+            q: "Why is Git called a distributed version control system?",
             a: "Every clone is a complete repository with the full history, not a working copy of a server. You can commit, branch, diff and search history with no network at all, and any clone can restore the origin. Centralised systems such as SVN keep the history on one server, so losing it loses everything."
           },
           {
-            q: "What are Git's four object types?",
+            q: "What are the four object types in Git?",
             a: "A <b>blob</b> holds file contents, a <b>tree</b> holds a directory listing pointing at blobs and other trees, a <b>commit</b> points at one tree plus its parents and metadata, and an annotated <b>tag</b> points at a commit. Everything is content-addressed by hash, which is why identical content is stored once however many times it appears."
           },
           {
@@ -14507,7 +15167,7 @@ const deepevalTopicTitles = [
             a: "<b>system</b> (whole machine), <b>global</b> (your user, in <code>~/.gitconfig</code>) and <b>local</b> (that repository, in <code>.git/config</code>). Local wins over global wins over system. <code>git config --list --show-origin</code> tells you which file a setting actually came from, which is how you debug the wrong author name on a work laptop."
           },
           {
-            q: "How do you set a different email for a work repository?",
+            q: "How do you use a different name or email for one repository?",
             a: "<code>git config user.email work@company.com</code> without <code>--global</code>, so it applies only to that repository. Better still, use <code>includeIf</code> in the global config to switch identity by directory - so everything under <code>~/work/</code> uses the work identity automatically and you never commit with the wrong one again."
           },
           {
@@ -14519,15 +15179,15 @@ const deepevalTopicTitles = [
             a: "<code>git add .</code> stages changes in the current directory and below; <code>git add -A</code> stages everything in the whole repository, including deletions outside your current path. In modern Git the difference is smaller than it used to be, but <code>-A</code> from the root is the unambiguous form."
           },
           {
-            q: "Which git log options do you actually use?",
+            q: "How do you view the commit history in a readable way?",
             a: "<code>--oneline --graph --decorate --all</code> for the branch topology, <code>--author</code> and <code>--since</code> to narrow, <code>-- path/to/file</code> for one file's history, and <code>-p</code> to see the diffs inline. <code>--no-merges</code> is useful when merge commits are drowning the real changes."
           },
           {
-            q: "What is the pickaxe search?",
+            q: "How do you find the commit where a piece of code was added or removed?",
             a: "<code>git log -S \"functionName\"</code> finds commits where the <b>number of occurrences</b> of that string changed - so it locates where something was introduced or deleted, not merely mentioned. <code>-G</code> takes a regex and matches any diff line. It is the fastest way to answer \"when did this code disappear?\""
           },
           {
-            q: "How do you find who changed a specific line and why?",
+            q: "How do you find who changed a particular line of code?",
             a: "<code>git blame -L 40,60 file</code> narrows to those lines, then <code>git show &lt;sha&gt;</code> reads the full commit and its message. Add <code>-w</code> to ignore whitespace changes and <code>-C</code> to follow code moved between files - without those, a reformatting commit hides the real author."
           },
           {
@@ -14535,7 +15195,7 @@ const deepevalTopicTitles = [
             a: "<code>checkout</code> historically did both jobs, which is why it is confusing. Modern Git splits it: <code>git switch</code> changes branches, <code>git restore</code> discards or restores file contents. <code>git restore --staged file</code> unstages, <code>git restore file</code> discards working changes. Prefer the new commands - they say what they do."
           },
           {
-            q: "How do you create a branch and push it with tracking?",
+            q: "How do you create a branch and push it to the remote?",
             a: "<code>git switch -c feature/ABC-123</code> then <code>git push -u origin feature/ABC-123</code>. The <code>-u</code> sets the upstream so later <code>git push</code> and <code>git pull</code> need no arguments, and <code>git status</code> can tell you how far ahead or behind you are."
           },
           {
@@ -14543,11 +15203,11 @@ const deepevalTopicTitles = [
             a: "A local branch linked to a remote one, so Git knows what to compare against. <code>origin/main</code> is not a branch you work on - it is a read-only pointer recording where the remote was at your last fetch. That is why <code>git log main..origin/main</code> shows exactly what is waiting to be pulled."
           },
           {
-            q: "Your push is rejected as non-fast-forward. What happened?",
+            q: "Your push is rejected as non-fast-forward. What does it mean and how do you fix it?",
             a: "The remote has commits you do not, so pushing would discard them. Fetch and integrate first - <code>git pull --rebase</code> to keep history linear, or a merge if the branch is shared. Never resolve it with a plain <code>--force</code>, which is precisely the operation that deletes someone else's work."
           },
           {
-            q: "Why --force-with-lease rather than --force?",
+            q: "What is the difference between git push --force and --force-with-lease?",
             a: "<code>--force</code> overwrites the remote unconditionally. <code>--force-with-lease</code> first checks the remote is still where you last saw it, and refuses if someone else pushed in the meantime. After rebasing your own branch you do need to force - so make it the lease variant and the dangerous case is caught."
           },
           {
@@ -14555,16 +15215,12 @@ const deepevalTopicTitles = [
             a: "Never rebase a branch other people have already pulled. Rebase rewrites commits with new hashes, so everyone else's history diverges from yours and their next pull creates duplicate commits. Rebase freely on your own unpushed work; merge on anything shared."
           },
           {
-            q: "What do the interactive rebase commands do?",
+            q: "What is an interactive rebase and what can you do with it?",
             a: "<code>pick</code> keeps the commit, <code>reword</code> edits its message, <code>edit</code> pauses so you can amend the content, <code>squash</code> folds it into the one above keeping both messages, <code>fixup</code> folds it in and discards the message, <code>drop</code> deletes it, and reordering the lines reorders the commits."
           },
           {
-            q: "Merge, squash or rebase when landing a pull request?",
+            q: "Merge, squash or rebase - which do you use when merging a pull request?",
             a: "<b>Merge</b> keeps every commit and records where integration happened. <b>Squash</b> gives one clean commit per ticket on main while the branch keeps its detail - the most common default. <b>Rebase and merge</b> gives linear history with individual commits, but rewrites hashes. Pick one per repository and stay consistent."
-          },
-          {
-            q: "What is git rerere?",
-            a: "\"Reuse recorded resolution\" - Git remembers how you resolved a conflict and replays it automatically the next time the same conflict appears. Enable it with <code>git config --global rerere.enabled true</code>. It pays for itself on a long-lived branch that you rebase repeatedly onto a moving main."
           },
           {
             q: "How do you revert a merge commit?",
@@ -14575,7 +15231,7 @@ const deepevalTopicTitles = [
             a: "<code>git revert &lt;sha&gt;</code>, which creates a new commit undoing the change. Never <code>reset</code> and force-push a shared branch - everyone who pulled has the old history and will re-push it, or lose work. Revert is honest: the history shows both the mistake and the correction."
           },
           {
-            q: "How do you recover a branch you deleted?",
+            q: "How do you recover a branch you deleted by mistake?",
             a: "<code>git reflog</code> records everywhere HEAD has been, so find the last commit of that branch and run <code>git branch recovered &lt;sha&gt;</code>. The commits survive until garbage collection runs, typically after 30 days - so the recovery window is generous, but the reflog is local only."
           },
           {
@@ -14583,16 +15239,12 @@ const deepevalTopicTitles = [
             a: "<code>git clean -fd</code> deletes untracked files and directories. It is dangerous because untracked files were never committed, so there is nothing to recover them from - unlike anything Git has seen. Always run <code>git clean -nd</code> first, which lists what would be removed without touching it."
           },
           {
-            q: "How do you discard all local changes and match the remote exactly?",
+            q: "How do you throw away all local changes and match the remote?",
             a: "<code>git fetch origin</code> then <code>git reset --hard origin/main</code>, followed by <code>git clean -fd</code> if untracked files must go too. It is genuinely destructive - uncommitted work is gone with no reflog entry - so confirm with <code>git status</code> first and consider a throwaway WIP commit instead."
           },
           {
-            q: "What does git bisect run give you?",
+            q: "What is git bisect and how do you automate it?",
             a: "Full automation of the search. <code>git bisect start</code>, mark a bad and a good commit, then <code>git bisect run npx playwright test tests/checkout.spec.ts</code> - Git binary-searches the range, using the command's exit code to judge each commit, and hands you the exact culprit. Across 500 commits that is nine test runs instead of 500."
-          },
-          {
-            q: "What is git describe used for?",
-            a: "It names a commit relative to the nearest tag - <code>v1.4.0-12-gabc1234</code> means twelve commits after v1.4.0. Build pipelines use it to stamp an artifact with a human-readable version, which is how you later work out exactly which commit a deployed build came from."
           },
           {
             q: "How do you compare two branches?",
@@ -14603,7 +15255,7 @@ const deepevalTopicTitles = [
             a: "<code>git clone --depth 1</code> fetches only the latest commit, which makes CI checkouts dramatically faster on a large repository. The trade-off is that history-dependent operations - <code>blame</code>, <code>bisect</code>, <code>describe</code>, and diffing against an old ref - do not work until you <code>fetch --unshallow</code>."
           },
           {
-            q: "What are Git submodules and what is the usual complaint?",
+            q: "What is a Git submodule and what problems do they cause?",
             a: "A submodule pins another repository at a specific commit inside yours. The complaint is that it is easy to forget: a fresh clone needs <code>--recurse-submodules</code>, the pointer must be committed after updating, and a detached HEAD inside the submodule loses work silently. Use it when the dependency genuinely has its own lifecycle."
           },
           {
@@ -14611,15 +15263,15 @@ const deepevalTopicTitles = [
             a: "It checks out a second branch into a separate directory sharing the same repository - <code>git worktree add ../hotfix main</code>. You get two working copies without a second clone, which is ideal for reviewing a colleague's branch or building a hotfix while your feature branch stays exactly as it was, mid-change."
           },
           {
-            q: "What is Git LFS for?",
+            q: "What is Git LFS and why would you use it?",
             a: "Large File Storage replaces big binaries with small pointer files and stores the real content separately. Without it, a committed video or a set of test screenshots is in the history forever and every clone downloads all of them. For a test repository the better answer is usually not to commit generated artifacts at all."
           },
           {
-            q: "How do you remove a large file from history entirely?",
+            q: "How do you remove a large file or a secret from the whole history?",
             a: "<code>git filter-repo</code> (or BFG), then a force push and a coordinated re-clone by everyone. It rewrites every affected commit, so it is a disruptive operation you plan rather than run casually. And if the file was a secret, rewriting history is not enough - rotate the credential, because it has been cloned."
           },
           {
-            q: "How do you stop secrets reaching the repository in the first place?",
+            q: "How do you stop passwords and keys from being committed?",
             a: "A <code>pre-commit</code> hook running a secret scanner such as gitleaks, plus server-side push protection where the host offers it, plus a committed <code>.env.example</code> so nobody is tempted to commit the real <code>.env</code>. Detection after the fact always means rotating the credential, which is far more expensive."
           },
           {
@@ -14631,15 +15283,11 @@ const deepevalTopicTitles = [
             a: "A repository with no working directory - just the <code>.git</code> contents. That is what a server hosts, because nobody edits files there and a checked-out branch would conflict with incoming pushes. <code>git clone --bare</code> creates one, which is also how you set up an internal mirror."
           },
           {
-            q: "What is sparse checkout?",
-            a: "It checks out only part of the tree, which makes a huge monorepo workable - <code>git sparse-checkout set apps/web tests/</code>. Combined with a partial clone it means you download and materialise only the directories you actually work in, rather than a repository with a thousand packages."
-          },
-          {
-            q: "How does a fork-based workflow work?",
+            q: "How does a fork and pull request workflow work?",
             a: "Clone your fork as <code>origin</code>, add the original as <code>upstream</code>, branch from an up-to-date <code>upstream/main</code>, push to your fork and open a pull request. Keep current by fetching <code>upstream</code> and rebasing - not by merging your fork's main into your branch, which drags in noise."
           },
           {
-            q: "What do protected branches usually enforce?",
+            q: "What is a protected branch and what does it enforce?",
             a: "No direct pushes, at least one approving review, required status checks passing, no force push, and often a linear history or signed commits. For a test repository the important one is the status check: the smoke suite must pass before a merge, or the branch protection is decorative."
           },
           {
@@ -14647,27 +15295,23 @@ const deepevalTopicTitles = [
             a: "It maps paths to people or teams who are automatically requested for review when those files change. In a shared repository it is how the automation team is guaranteed to see changes under <code>tests/</code> or <code>playwright.config.ts</code>, rather than finding out after a merge broke the suite."
           },
           {
-            q: "Trunk-based, GitHub Flow or GitFlow - which for a test repository?",
-            a: "Short-lived feature branches off main with a pull request - GitHub Flow - for almost every test repository. Full GitFlow with develop and release branches only earns its overhead when you ship versioned releases. The failure mode to avoid is a long-lived automation branch, which drifts from the application it is meant to test."
-          },
-          {
-            q: "How long should a branch live?",
+            q: "How long should a feature branch live?",
             a: "Days, not weeks. A branch that lives a month accumulates conflicts nobody reviews honestly, and in a test repository it drifts away from the application it validates - so the tests pass on the branch and fail the moment they meet main. If a change is genuinely large, merge it behind a tag or a skipped suite."
           },
           {
-            q: "How do you keep a long-running branch current?",
-            a: "Rebase onto main regularly - daily rather than at the end - so conflicts are small and fresh in your memory. Enable <code>rerere</code> so repeated conflicts resolve themselves. If the branch is shared, merge main into it instead, because rebasing would rewrite history others have pulled."
+            q: "How do you keep a long-running branch up to date with main?",
+            a: "Rebase onto main regularly - daily rather than at the end - so conflicts are small and fresh in your memory. Turn on <code>git config --global rerere.enabled true</code> so Git remembers how you resolved a conflict and replays it the next time the same one appears. If the branch is shared, merge main into it instead, because rebasing would rewrite history others have pulled."
           },
           {
-            q: "What is semantic versioning and how do tags fit?",
+            q: "What is semantic versioning, and how do tags fit in?",
             a: "MAJOR.MINOR.PATCH - major for breaking changes, minor for backwards-compatible features, patch for fixes. Releases are marked with <b>annotated</b> tags (<code>git tag -a v1.2.0 -m \"...\"</code>), which are real objects carrying the tagger and message and can be signed. Tags are not pushed by default - use <code>git push origin v1.2.0</code>."
           },
           {
-            q: "How do Conventional Commits help beyond tidiness?",
+            q: "What are Conventional Commits and why use them?",
             a: "Prefixes such as <code>feat:</code>, <code>fix:</code> and <code>test:</code> let tooling generate a changelog and decide the next semantic version automatically. A <code>commit-msg</code> hook can enforce the format and require a ticket id, so traceability from a released build back to a requirement is mechanical rather than aspirational."
           },
           {
-            q: "What belongs in .gitignore for an automation repository?",
+            q: "What should go into .gitignore in a test automation project?",
             a: "<code>node_modules/</code>, <code>target/</code>, <code>test-results/</code>, <code>playwright-report/</code>, <code>allure-results/</code>, screenshots and videos, <code>.env</code>, and IDE folders. The rule is that anything generated by a run is build output, not source - committing it produces constant meaningless diffs and merge conflicts."
           },
           {
@@ -14679,11 +15323,7 @@ const deepevalTopicTitles = [
             a: "Add it to <code>.git/info/exclude</code>, which is a local ignore file that is never committed, or configure a global ignore with <code>core.excludesFile</code>. That is the right place for personal editor settings - putting them in the shared <code>.gitignore</code> imposes your tooling on everyone else."
           },
           {
-            q: "What is git stash apply versus pop, and what does -u add?",
-            a: "<code>pop</code> applies the stash and removes it from the stack; <code>apply</code> leaves it in the list, which is safer when the apply might conflict. <code>-u</code> includes untracked files - forgetting it is exactly why a brand-new spec file seems to vanish after a pop, because it was never stashed."
-          },
-          {
-            q: "Why is a WIP commit often better than a stash?",
+            q: "Why is a temporary commit often safer than a stash?",
             a: "Stashes are local, unnamed by default, invisible to anyone else and easy to forget - and there is no reflog protecting them the way there is for commits. A throwaway commit on a branch is pushable, reviewable, recoverable and can be squashed away later. Use the stash for minutes, not days."
           },
           {
@@ -14691,12 +15331,8 @@ const deepevalTopicTitles = [
             a: "If it is not pushed: <code>git branch feature/fix</code> to save the commit, then <code>git reset --hard HEAD~1</code> to rewind main, then <code>git switch feature/fix</code>. The commit is now on the branch and main is clean. If it is already pushed to a protected main, do not rewind it - <code>git revert</code> the commit and re-apply it properly on a branch."
           },
           {
-            q: "How do you handle a conflict in testng.xml or a suite file?",
+            q: "How do you handle a conflict in a suite file such as testng.xml?",
             a: "These conflict constantly because everyone appends to the same list. Resolve by keeping both sides - the conflict is nearly always two people adding different classes - then actually run the suite to confirm the XML is still valid, because a badly merged tag parses as valid XML while silently running nothing."
-          },
-          {
-            q: "What does git cherry-pick -x add?",
-            a: "It appends the original commit's hash to the message - \"(cherry picked from commit abc123)\". Without it you get a duplicate change with no trace of where it came from, which makes a later bisect or audit confusing. Always use it when porting a fix between release branches."
           },
           {
             q: "When is cherry-pick the wrong tool?",
@@ -14707,19 +15343,11 @@ const deepevalTopicTitles = [
             a: "<code>HEAD</code> is where you are now. <code>ORIG_HEAD</code> is where you were before the last big operation - a merge, rebase or reset - which makes <code>git reset --hard ORIG_HEAD</code> the quickest undo. <code>FETCH_HEAD</code> is what the last fetch retrieved, useful for diffing before you merge."
           },
           {
-            q: "What does the two-dot versus three-dot syntax mean?",
+            q: "What is the difference between two dots and three dots in git log and git diff?",
             a: "In <code>git log</code>, <code>A..B</code> means commits reachable from B but not A. In <code>git diff</code>, <code>A..B</code> compares the two tips directly while <code>A...B</code> compares B against their <b>common ancestor</b> - which is what a pull request shows. Confusing them makes a diff look far larger than the actual change."
           },
           {
-            q: "How do you see what a pull request will actually change?",
-            a: "<code>git diff main...feature</code> with three dots, which compares your branch against the merge base rather than against main's current tip. The two-dot form includes everything that landed on main since you branched, so it shows changes you did not make."
-          },
-          {
-            q: "What is git gc and when does it matter?",
-            a: "Garbage collection compresses loose objects into packfiles and prunes unreachable ones. Git runs it automatically, so you rarely invoke it - but it matters to know that it is what eventually removes commits orphaned by a reset, which is why the reflog recovery window is finite."
-          },
-          {
-            q: "How do you find when a file was deleted?",
+            q: "How do you find when a file was deleted and restore it?",
             a: "<code>git log --diff-filter=D -- path/to/file</code> lists the commits that deleted it, even though the path no longer exists in the working tree. Then <code>git checkout &lt;sha&gt;^ -- path/to/file</code> restores it from the commit before the deletion."
           },
           {
@@ -14727,7 +15355,7 @@ const deepevalTopicTitles = [
             a: "<code>git rebase -i</code>, mark the commit <code>edit</code>, then <code>git reset HEAD^</code> to unstage its changes while keeping them in the working tree, stage and commit them in two parts with <code>git add -p</code>, and <code>git rebase --continue</code>. It is the standard way to untangle a commit that mixed two concerns."
           },
           {
-            q: "What is a merge conflict marker actually telling you?",
+            q: "What do the merge conflict markers in a file mean?",
             a: "Between <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> and <code>=======</code> is <b>your</b> version (HEAD, the branch you are on), and between <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> is <b>theirs</b>. During a rebase the roles are reversed, which trips people up - your commits are being replayed, so \"ours\" is the branch you are rebasing onto."
           },
           {
@@ -14739,11 +15367,7 @@ const deepevalTopicTitles = [
             a: "<code>git merge --abort</code> or <code>git rebase --abort</code> returns everything to the state before you started. Both need a clean-ish working tree to succeed, which is another reason to commit or stash before starting. If you are already too far in, <code>git reset --hard ORIG_HEAD</code> is the fallback."
           },
           {
-            q: "What is git shortlog for?",
-            a: "<code>git shortlog -sn</code> summarises commits per author, and it is the quickest way to generate release notes grouped by contributor. In a test repository it also answers a useful question: who actually maintains this suite, which is often not who people assume."
-          },
-          {
-            q: "How do you make one commit apply to several release branches?",
+            q: "How do you apply the same fix to several release branches?",
             a: "Cherry-pick with <code>-x</code> onto each, or - better - fix it on the oldest supported branch and merge that branch forward into the newer ones. Merging forward means Git records the relationship, so the change is not duplicated and later merges do not conflict on it."
           },
           {
@@ -14751,11 +15375,11 @@ const deepevalTopicTitles = [
             a: "A branch is a pointer that <b>moves</b> as you commit; a tag is a pointer that stays put, marking a specific commit forever. That is why releases use tags - you need to be able to return to exactly what shipped, and a branch will have moved on."
           },
           {
-            q: "How do you check out a tag, and what is the catch?",
+            q: "How do you check out a tag, and what should you watch out for?",
             a: "<code>git checkout v1.2.0</code> works but leaves you in a <b>detached HEAD</b>, because a tag is not a branch. Any commits you make there belong to no branch and are lost once you switch away. If you need to work from a tag, branch from it: <code>git switch -c hotfix v1.2.0</code>."
           },
           {
-            q: "How would you version a test suite against application releases?",
+            q: "How do you version a test suite against application releases?",
             a: "Tag the test repository when a release is validated, so you can later check out exactly the suite that signed off v1.2.0. If the tests live in the same repository as the application the problem solves itself - which is one of the stronger arguments for keeping them together."
           },
           {
@@ -14771,27 +15395,23 @@ const deepevalTopicTitles = [
             a: "<code>git branch --merged main</code> lists the ones fully merged, and piping them to <code>git branch -d</code> deletes them - <code>-d</code> rather than <code>-D</code>, so anything unmerged is refused. Pair it with <code>fetch --prune</code>, and a stale branch list stops being a source of confusion."
           },
           {
-            q: "What is a pre-push hook useful for in a test repository?",
+            q: "What would you use a pre-push hook for?",
             a: "Running the fast checks that would otherwise fail CI three minutes later - lint, <code>tsc --noEmit</code>, and a handful of smoke tests. <code>pre-commit</code> should stay very fast or people bypass it with <code>--no-verify</code>; <code>pre-push</code> can afford a little more because it runs less often."
           },
           {
-            q: "How do you share hooks across a team?",
+            q: "How do you share Git hooks across a team?",
             a: "Native hooks live in <code>.git/hooks</code> and are not versioned, so they cannot be shared directly. Use Husky, which stores them in the repository and installs them on <code>npm install</code>, with lint-staged so only the staged files are linted. Otherwise every new joiner has different local checks."
           },
           {
-            q: "What is git blame -w -C for?",
-            a: "<code>-w</code> ignores whitespace-only changes and <code>-C</code> detects code moved or copied from another file. Without them, a reformatting commit or a file split makes the entire file blame to one person and one date, which hides the actual authorship you were looking for."
-          },
-          {
-            q: "How do you review a large pull request honestly?",
+            q: "How do you review a very large pull request?",
             a: "Push back on the size first - a 2,000-line diff does not get reviewed, it gets approved. Otherwise review commit by commit rather than the combined diff, check out the branch and run it, and focus on the things a linter cannot see: is the test asserting something meaningful, are the locators stable, is anything hard-coded."
           },
           {
-            q: "What do you look for specifically when reviewing test code?",
+            q: "What do you look for when reviewing test code?",
             a: "Assertions that could never fail, hard-coded waits, absolute XPath or brittle locators, credentials or environment URLs in the code, tests that depend on data another test creates, missing cleanup, and a test name that does not describe what it proves. Those seven cover most of what actually goes wrong."
           },
           {
-            q: "How do you handle a repository where CI artifacts were committed?",
+            q: "Reports and screenshots were committed to the repo. How do you clean it up?",
             a: "Add the paths to <code>.gitignore</code>, <code>git rm --cached -r</code> them, and commit. Purging them from history with <code>filter-repo</code> is only worth the disruption if the repository has genuinely become too large to clone - otherwise stopping the bleeding is enough."
           },
           {
@@ -14803,7 +15423,7 @@ const deepevalTopicTitles = [
             a: "<code>git log v1.2.0..main --oneline</code> lists everything on main since that tag. With Conventional Commits that output is effectively the draft changelog, and it is also the list of changes whose tests should be in the next regression run."
           },
           {
-            q: "What would you check before force-pushing anything?",
+            q: "What do you check before force-pushing?",
             a: "That the branch is yours alone, that nobody has opened a pull request against it that would be disrupted, and that you are using <code>--force-with-lease</code> so a concurrent push aborts it. If any of those is uncertain, the answer is not to force - revert or merge instead."
           }
         ]
